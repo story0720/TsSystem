@@ -29,7 +29,8 @@
         <!-- Main Sidebar Container -->
         @include('layout.sidebar')
         <!-- Content Wrapper. Contains page content -->
-        @include('layout.content')
+        {{-- @include('layout.content') --}}
+        @yield('content')
         <!-- /.content-wrapper -->
     </div>
     <!-- ./wrapper -->

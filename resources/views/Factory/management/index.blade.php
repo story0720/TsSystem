@@ -1,15 +1,18 @@
+@extends('layout.index')
+@section('title','廠商管理 《鐵祥企業》')
+@section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">廠商管理</h1>
+                    <h1 class="m-0">廠商清單</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active">廠商管理</li>
+                        <li class="breadcrumb-item active">廠商清單</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -21,8 +24,8 @@
     <div class="content">
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header text-right">
-                    <a href="client-add.html" class="btn btn-primary">新增廠商</a>
+                <div class="card-header text-left">
+                    <a href="{{Route('management.create')}}" class="btn btn-success">新增廠商</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
@@ -31,7 +34,7 @@
                             <tr>
                                 <th>#</th>
                                 <th>種類</th>
-                                <th>寶號</th>
+                                <th>廠商名稱</th>
                                 <th>聯絡人</th>
                                 <th>主要電話</th>
                                 <!-- <th>次要電話</th>
@@ -42,24 +45,25 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data as $item)
                             <tr>
-                                <td>1.</td>
-                                <td>內容（種類）</td>
-                                <td>內容（寶號）</td>
-                                <td>內容（聯絡人）</td>
-                                <td>內容（主要電話）</td>
+                                <td>{{$item->mn_id}}</td>
+                                <td>{{$item->category->ca_Name}}</td>
+                                <td>{{$item->mn_Name}}</td>
+                                <td>{{$item->mn_Contact}}</td>
+                                <td>{{$item->mn_Tel1}}</td>
                                 <!-- <td>內容（次要電話）</td>
                                 <td>內容（傳真）</td>
                                 <td>內容（地址）</td>
                                 <td>內容（備註）</td> -->
                                 <td class="text-center">
                                     <button class="btn btn-primary btn-sm" href="#" data-toggle="modal"
-                                        data-target="#modal-lg">
+                                        data-target="#modal-lg{{$item->mn_id}}">
                                         <i class="fas fa-folder">
                                         </i>
                                         檢視
                                     </button>
-                                    <div class="modal fade" id="modal-lg">
+                                    <div class="modal fade" id="modal-lg{{$item->mn_id}}">
                                         <div class="modal-dialog modal-lg">
                                             <div class="modal-content">
                                                 <div class="modal-header">
@@ -74,35 +78,36 @@
                                                         <tbody>
                                                             <tr>
                                                                 <th style="width: 10rem;">種類</th>
-                                                                <td class="text-left">內容（種類）</td>
+                                                                <td class="text-left">{{$item->category->ca_Name}}</td>
+
                                                             </tr>
                                                             <tr>
-                                                                <th style="width: 10rem;">寶號</th>
-                                                                <td class="text-left">內容（寶號）</td>
+                                                                <th style="width: 10rem;">公司名稱</th>
+                                                                <td class="text-left">{{$item->mn_Name}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th style="width: 10rem;">聯絡人</th>
-                                                                <td class="text-left">內容（聯絡人）</td>
+                                                                <td class="text-left">{{$item->mn_Contact}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th style="width: 10rem;">主要電話</th>
-                                                                <td class="text-left">內容（主要電話）</td>
+                                                                <td class="text-left">{{$item->mn_Tel1}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th style="width: 10rem;">次要電話</th>
-                                                                <td class="text-left">內容（次要電話）</td>
+                                                                <td class="text-left">{{$item->mn_Tel2}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th style="width: 10rem;">傳真</th>
-                                                                <td class="text-left">內容（傳真）</td>
+                                                                <td class="text-left">{{$item->mn_Fax}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th style="width: 10rem;">地址</th>
-                                                                <td class="text-left">內容（地址）</td>
+                                                                <td class="text-left">{{$item->mn_Address}}</td>
                                                             </tr>
                                                             <tr>
                                                                 <th style="width: 10rem;">備註</th>
-                                                                <td class="text-left">內容（備註）</td>
+                                                                <td class="text-left">{{$item->mn_Memo}}</td>
                                                             </tr>
                                                         </tbody>
                                                     </table>
@@ -117,16 +122,20 @@
                                         <!-- /.modal-dialog -->
                                     </div>
                                     <!-- /.modal -->
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="{{Route('management.edit',$item->mn_id)}}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         編輯
                                     </a>
-                                    <a class="btn btn-danger btn-sm" href="#">
-                                        <i class="fas fa-trash">
-                                        </i>
-                                        刪除
-                                    </a>
+                                    <form action="{{Route('management.delete',$item->mn_id)}}" method="post" class="d-inline">
+                                        @method('DELETE')
+                                        @csrf
+                                        <button type="submit" class="btn btn-danger btn-sm">
+                                            <i class="fas fa-trash">
+                                            </i>
+                                            刪除
+                                        </button>
+                                    </form>
                                     <a class="btn btn-warning btn-sm" href="#">
                                         <i class="fas fa-file">
                                         </i>
@@ -134,6 +143,7 @@
                                     </a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
@@ -154,3 +164,4 @@
     </div>
     <!-- /.content -->
 </div>
+@endsection

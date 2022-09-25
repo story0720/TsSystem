@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\FactoryMannage;
+use App\Models\Processing;
 use Illuminate\Http\Request;
-class FactoryMannageController extends Controller
+use Symfony\Component\Process\Process;
+
+class processingController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +15,8 @@ class FactoryMannageController extends Controller
      */
     public function index()
     {
-        //return view('FactoryMannage.index');
-        return view("FactoryMannage.index");
+        $data=Processing::orderby('id', 'desc')->get();
+        return view('Processing.index',['data'=>$data]);
     }
 
     /**
@@ -24,7 +26,7 @@ class FactoryMannageController extends Controller
      */
     public function create()
     {
-        //
+        return view('Processing.create');
     }
 
     /**
@@ -35,16 +37,21 @@ class FactoryMannageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = new Processing();
+        $data->pr_categoryname = $request->Categoryname;
+        $data->pr_standard = $request->Standard;
+        $data->pr_memo = $request->Memo;
+        $data->save();
+        return redirect()->action([ProcessingController::class, 'index']);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\FactoryMannage  $factoryMannage
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(FactoryMannage $factoryMannage)
+    public function show($id)
     {
         //
     }
@@ -52,33 +59,39 @@ class FactoryMannageController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\FactoryMannage  $factoryMannage
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(FactoryMannage $factoryMannage)
+    public function edit($id)
     {
-        //
+        $edit=Processing::find($id);
+        return view('processing.edit',['edit'=>$edit]);
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\FactoryMannage  $factoryMannage
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, FactoryMannage $factoryMannage)
+    public function update(Request $request, $id)
     {
-        //
+        $data=Processing::find($id);
+        $data->pr_categoryname= $request->Categoryname;
+        $data->pr_standard =$request->Standard;
+        $data->pr_memo = $request->Memo;
+        $data->save();
+        return redirect()->action([ProcessingController::class, 'index']);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\FactoryMannage  $factoryMannage
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(FactoryMannage $factoryMannage)
+    public function destroy($id)
     {
         //
     }
