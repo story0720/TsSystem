@@ -10,5 +10,16 @@ class Consume extends Model
     use HasFactory;
     protected $table = 'consumes';
     protected $primaryKey='id';
-    //protected $fillable = ['ca_Name','ca_Memo'];
+    protected $fillable = ['ca_Name','ca_Memo'];
+
+
+    //進貨管理
+    public function Restocks(){
+        return $this->hasMany(Restock::class,'co_id','id');
+    }
+    //標籤管理
+    public function Tags(){
+        return $this->belongsToMany(Tag::class);
+    }
+
 }

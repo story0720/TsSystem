@@ -46,16 +46,17 @@
                             </tr>
                         </thead>
                         <tbody>
+                            @foreach($data as $key)
                             <tr>
-                                <td>1.</td>
-                                <td>內容（耗材名稱）</td>
+                                <td>{{$key->id}}</td>
+                                <td>{{$key->Consume->co_standardName}}</td>
                                 <td>內容（耗材規格）</td>
-                                <td>內容（耗材廠商）</td>
-                                <td>內容（進貨日期）</td>
-                                <td>內容（進貨單價）</td>
-                                <td>內容（進貨數量）</td>
-                                <td>內容（小計(系統產出：進貨單價×進貨數量)）</td>
-                                <td>內容（備註）</td>
+                                <td>{{$key->FactoryCategory->ca_Name}}</td>
+                                <td>{{$key->re_date}}</td>
+                                <td>{{$key->re_quantity}}</td>
+                                <td>{{$key->re_unitprice}}</td>
+                                <td>{{$key->re_count}}</td>
+                                <td>{{$key->re_memo}}</td>
                                 <td class="text-center">
                                     <a class="btn btn-info btn-sm" href="#">
                                         <i class="fas fa-pencil-alt">
@@ -69,6 +70,7 @@
                                     </a>
                                 </td>
                             </tr>
+                            @endforeach
                         </tbody>
                     </table>
                 </div>

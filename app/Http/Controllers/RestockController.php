@@ -16,8 +16,8 @@ class RestockController extends Controller
      */
     public function index()
     {
-        $data=Restock::orderby('id', 'desc')->get();
-        return view('Consume.restock.index',['data'=>$data]);
+        $data = Restock::orderby('id', 'desc')->get();
+        return view('Consume.restock.index', ['data' => $data]);
     }
 
     /**
@@ -27,9 +27,9 @@ class RestockController extends Controller
      */
     public function create()
     {
-        $consume=Consume::all();
-        $category=FactoryCategory::find(7);      //耗材廠商代號(7)
-        return view('Consume.restock.create',['consume'=>$consume,'category'=>$category]);
+        $consume = Consume::all();
+        $category = FactoryCategory::all();      //耗材廠商代號(1或2)
+        return view('Consume.restock.create', ['consume' => $consume, 'category' => $category]);
     }
 
     /**
@@ -40,7 +40,17 @@ class RestockController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Restock::FirstOrCreate([
+            'ca_id'=>$request->CoName,                      //廠商種類
+            'co_id'=>$request->CoName,                      //耗材名稱
+            're_date'=>$request->Date,
+            're_quantity'=>$request->Quantity,
+            're_unitprice'=>$request->UnitPrice,
+            're_count'=>$request->Count,
+            're_memo'=>$request->Memo,
+        ]);
+        return redirect()->action([RestockController::class, 'index']);
+
     }
 
     /**

@@ -45,9 +45,9 @@
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->co_standardName}}</td>
                                 <td>
-                                    <p>內容（耗材規格）1</p>
-                                    <p>內容（耗材規格）2</p>
-                                    <p>內容（耗材規格）3</p>
+                                    @foreach($item->Tags as  $key)
+                                        <span class="badge rounded-pill bg-success">{{$key->name}}</span>
+                                    @endforeach
                                 </td>
                                 <td>{{$item->co_memo}}</td>
                                 <td class="text-center">

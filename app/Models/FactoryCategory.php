@@ -12,4 +12,8 @@ class FactoryCategory extends Model
     protected $primaryKey='ca_id';
     protected $fillable = ['ca_Name','ca_Memo'];
 
+    //進貨管理
+    public function Restocks(){
+        return $this->hasMany(Restock::class,'ca_id','ca_id');
+    }
 }

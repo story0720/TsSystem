@@ -11,13 +11,14 @@ return new class extends Migration
      *
      * @return void
      */
+    //加工管理
     public function up()
     {
         Schema::create('processings', function (Blueprint $table) {
             $table->id();
-            $table->string('pr_categoryname');
-            $table->string('pr_standard')->nullable();        //規格
-            $table->string('pr_memo');
+            $table->string('pr_categoryname');                  //種類名稱
+            $table->string('pr_standard')->nullable();          //規格
+            $table->string('pr_memo')->nullable();              //備註
             $table->timestamps();
         });
     }

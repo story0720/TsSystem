@@ -11,6 +11,7 @@ return new class extends Migration
      *
      * @return void
      */
+    //廠商管理
     public function up()
     {
         Schema::create('factorymannagements', function (Blueprint $table) {
@@ -20,10 +21,10 @@ return new class extends Migration
             $table->string('mn_Name');
             $table->string('mn_Contact');
             $table->string('mn_Tel1');
-            $table->string('mn_Tel2');
-            $table->string('mn_Fax');
-            $table->string('mn_Address');
-            $table->string('mn_Memo');
+            $table->string('mn_Tel2')->nullable();
+            $table->string('mn_Fax')->nullable();
+            $table->string('mn_Address')->nullable();
+            $table->string('mn_Memo')->nullable();
             $table->timestamps();
         });
     }

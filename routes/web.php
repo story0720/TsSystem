@@ -42,7 +42,7 @@ Route::get("/Consume", [App\Http\Controllers\ConsumeController::class, 'index'])
 Route::get("/Consume/create", [App\Http\Controllers\ConsumeController::class, 'create'])->name('consume.create');
 Route::post("/Consume", [App\Http\Controllers\ConsumeController::class, 'store'])->name('consume.store');
 Route::get("/Consume/{id}/edit", [App\Http\Controllers\ConsumeController::class, 'edit'])->name('consume.edit');
-Route::put("/Consume/{id}", [App\Http\Controllers\ConsumeController::class, 'update'])->name('Consume.update');
+Route::put("/Consume/{id}", [App\Http\Controllers\ConsumeController::class, 'update'])->name('consume.update');
 Route::delete("/Consume/{id}/delete", [App\Http\Controllers\ConsumeController::class, 'destroy'])->name('consume.delete');
 
 //耗材進貨管理
@@ -52,3 +52,7 @@ Route::post("/restock", [App\Http\Controllers\RestockController::class, 'store']
 Route::get("/restock/{id}/edit", [App\Http\Controllers\RestockController::class, 'edit'])->name('restock.edit');
 Route::put("/restock/{id}", [App\Http\Controllers\RestockController::class, 'update'])->name('restock.update');
 Route::delete("/restock/{id}/delete", [App\Http\Controllers\RestockController::class, 'destroy'])->name('restock.delete');
+
+
+//標籤雲
+Route::resource("/tag",App\Http\Controllers\TagController::class)->only(['index','destory']);

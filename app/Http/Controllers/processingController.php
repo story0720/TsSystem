@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Processing;
+use Exception;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
 
@@ -93,6 +94,12 @@ class processingController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            Processing::find($id)->delete();
+            return redirect()->action([ProcessingController::class, 'index']);
+        }catch (Exception $e) {
+            //return "刪除失敗";
+            return $e->getMessage();
+        }
     }
 }

@@ -20,29 +20,29 @@
         </div><!-- /.container-fluid -->
     </div>
     <!-- /.content-header -->
-
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
             <div class="card">
                 <!-- form start -->
-                <form>
+                <form action="{{Route('restock.store')}}" method="post">
+                    @csrf
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="">耗材名稱</label>
-                                <select class="form-control" name="" id="">
+                                <select class="form-control" name="ReName" id="">
                                     <option value="">請選擇耗材名稱...</option>
-                                    @foreach ($consume as $item)
-                                    <option value="{{$item->id}}">{{$item->co_standardName}}</option>
+                                    @foreach($consume as $key)
+                                    <option value="{{$key->id}}">{{$key->co_standardName}}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">耗材規格</label>
                                 <div class="input-group">
-                                    <input type="text" class="form-control border-right-0" id=""
-                                        placeholder="請先選擇耗材名稱" disabled>
+                                    <input type="text" class="form-control border-right-0" id="" placeholder="請先選擇耗材名稱"
+                                        disabled>
                                     <div class="input-group-append">
                                         <span class="input-group-text border-1 border-left-0">
                                             <i class="fas fa-exclamation-circle"></i>
@@ -57,17 +57,18 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">耗材廠商</label>
-                                <select class="form-control" name="" id="">
+                                <select class="form-control" name="CoName" id="">
                                     <option value="">請選擇耗材廠商...</option>
-                                    <option value="{{$category['ca_id'] }}">{{$category['ca_Name'] }}</option>
-
+                                    @foreach($category as $key)
+                                    <option value="{{$key->ca_id}}">{{$key->ca_Name}}</option>
+                                    @endforeach
 
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">進貨日期</label>
-                                <input type="date" value="2022-12-31" class="form-control datetimepicker-input"
-                                    data-target="#reservationdate" />
+                                <input type="date" name="Date" value="{{ date('Y-m-d')}}"
+                                    class="form-control datetimepicker-input" data-target="#reservationdate" />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">進貨單價</label>
@@ -77,7 +78,8 @@
                                             <i class="fas fa-dollar-sign"></i>
                                         </span>
                                     </div>
-                                    <input type="text" class="form-control" id="" placeholder="請輸入進貨單價...">
+                                    <input type="number" name="UnitPrice" class="form-control" id="UnitPrice" oninput="count()"
+                                        placeholder="請輸入進貨單價...">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -88,8 +90,8 @@
                                             <i class="fas fa-truck"></i>
                                         </span>
                                     </div>
-                                    <input type="number" class="form-control" id="" min="0" value="0"
-                                        placeholder="請輸入進貨數量...">
+                                    <input type="number" class="form-control" name="Quantity" id="" min="1"
+                                        placeholder="請輸入進貨數量..." oninput="count()">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -100,13 +102,13 @@
                                             <i class="fas fa-dollar-sign"></i>
                                         </span>
                                     </div>
-                                    <input type="number" class="form-control text-danger" id="" min="0" value="0"
-                                        placeholder="系統自動計算（公式：單價 × 數量）" disabled>
+                                    <input type="number" name="Count" 　class="form-control text-danger" id="Count" min="1"
+                                        value="0" placeholder="系統自動計算（公式：單價 × 數量）" readonly>
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="client_memo">備註</label>
-                                <textarea class="form-control" id="client_memo" rows="5"
+                                <textarea class="form-control"  name="Memo" id="client_memo" rows="5"
                                     placeholder="請輸入備註 ..."></textarea>
                             </div>
                         </div>
@@ -126,3 +128,12 @@
     <!-- /.content -->
 </div>
 @endsection
+
+<script>
+    function count(){
+        var Quantity= $("input[name='Quantity']").val();
+        var UnitPrice=$("input[name='UnitPrice']").val();
+        $('#Count').val(Quantity*UnitPrice);
+    }
+
+</script>

@@ -11,12 +11,13 @@ return new class extends Migration
      *
      * @return void
      */
+    //廠商"種類"管理
     public function up()
     {
         Schema::create('factorycategorys', function (Blueprint $table) {
             $table->increments('ca_id');
             $table->string('ca_Name');
-            $table->string('ca_Memo');
+            $table->string('ca_Memo')->nullable();
             $table->timestamps();
         });
     }

@@ -11,13 +11,14 @@ return new class extends Migration
      *
      * @return void
      */
+    //耗材管理
     public function up()
     {
         Schema::create('consumes', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
             $table->string('co_standardName');
-            $table->string('co_standard')->nullable();
-            $table->string('co_memo');
+            //$table->string('co_standard');
+            $table->string('co_memo')->nullable();
             $table->timestamps();
         });
     }

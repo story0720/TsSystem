@@ -35,12 +35,12 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-item">
+                {{-- <li class="nav-item">
                     <a href="./order.html" target="_blank" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
                         <p>訂單</p>
                     </a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
                     <a href="{{Route('processing.index')}}" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>

@@ -28,11 +28,13 @@
                 <!-- form start -->
                 <form action="{{Route('consume.store')}}" method="POST">
                     @csrf
+                    <input type="hidden" name="Tag">
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col">
                                 <label for="">耗材名稱</label>
-                                <input type="text" class="form-control" name="StandardName" id="" placeholder="請輸入耗材名稱...">
+                                <input type="text" class="form-control" name="StandardName" id=""
+                                    placeholder="請輸入耗材名稱...">
                             </div>
                         </div>
                         <div class="row mb-3">
@@ -40,33 +42,31 @@
                                 <div class="form-group mb-0">
                                     <label for="">耗材規格</label>
                                     <div class="input-group">
-                                        <input type="text" class="form-control" name="Standard" placeholder="請輸入加工規格...">
+                                        <input type="text" id="Specification " class="form-control" name="Specification"
+                                            placeholder="請輸入加工規格...">
                                         <span class="input-group-append">
-                                            <button type="button" class="btn btn-info btn-flat">
+                                            <button type="button" class="btn btn-info btn-flat" onclick="addTag()">
                                                 <i class="fas fa-plus"></i>
                                             </button>
                                         </span>
                                     </div>
                                     <!-- /input-group -->
                                 </div>
-
+                                <div id="tag"></div>
                                 <div class="alert alert-dismissible mb-0 pt-2 pb-0 pr-5 pl-0">
                                     <button type="button" class="close pl-1 pb-1" data-dismiss="alert"
                                         aria-hidden="true">&times;</button>
                                     <div class="input-group">
                                         <span class="pl-3 pr-2 py-1">1</span>
-                                        <input type="text" class="form-control form-control-sm" value="規格1"
-                                            disabled>
+                                        <input type="text" class="form-control form-control-sm" value="規格1" disabled>
                                     </div>
                                 </div>
-
                                 <div class="alert alert-dismissible mb-0 pt-2 pb-0 pr-5 pl-0">
                                     <button type="button" class="close pl-1 pb-1" data-dismiss="alert"
                                         aria-hidden="true">&times;</button>
                                     <div class="input-group">
                                         <span class="pl-3 pr-2 py-1">2</span>
-                                        <input type="text" class="form-control form-control-sm" value="規格2"
-                                            disabled>
+                                        <input type="text" class="form-control form-control-sm" value="規格2" disabled>
                                     </div>
                                 </div>
                             </div>
@@ -94,3 +94,13 @@
     <!-- /.content -->
 </div>
 @endsection
+
+<script>
+    function addTag(){
+        var sp=$("input[name='Specification']").val();
+        var tag=$("input[name='Tag']").val();
+        $("input[name='Tag']").val(sp+','+tag);
+        $("#tag").append("<span class='badge badge-info'>"+sp+"</span>")
+        $("input[name='Specification']").val("");
+    }
+</script>
