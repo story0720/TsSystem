@@ -11,9 +11,9 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="consumables.html">耗材管理</a></li>
-                        <li class="breadcrumb-item active">新增耗材</li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="{{Route('consume.index')}}">耗材列表</a></li>
+                        <li class="breadcrumb-item active">編輯耗材</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->

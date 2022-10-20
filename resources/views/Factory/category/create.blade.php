@@ -11,8 +11,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="client.html">廠商管理</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('category.index')}}">廠商種類列表</a></li>
                             <li class="breadcrumb-item active">新增廠商種類</li>
                         </ol>
                     </div><!-- /.col -->
@@ -31,8 +31,8 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col">
-                                <label for="client_category">種類</label>
-                                <input type="text" class="form-control" name="Name"  id="client_category" placeholder="請輸入廠商種類">
+                                <label for="client_category">種類名稱</label>
+                                <input type="text" class="form-control" name="Name"  id="client_category" placeholder="請輸入廠商種類名稱">
                             </div>
                             <div class="form-group col">
                                 <label for="client_category_memo">備註</label>

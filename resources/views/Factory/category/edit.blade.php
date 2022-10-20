@@ -7,13 +7,13 @@
         <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">新增廠商種類</h1>
+                        <h1 class="m-0">編輯廠商種類</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="client.html">廠商管理</a></li>
-                            <li class="breadcrumb-item active">新增廠商種類</li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{Route('category.index')}}">廠商清單列表</a></li>
+                            <li class="breadcrumb-item active">編輯廠商種類</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -32,7 +32,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col">
-                                <label for="client_category">種類</label>
+                                <label for="client_category">種類名稱</label>
                                 <input type="text" class="form-control" name="Name"  value="{{$edit['ca_Name']}}"  id="client_category" placeholder="請輸入廠商種類">
                             </div>
                             <div class="form-group col">

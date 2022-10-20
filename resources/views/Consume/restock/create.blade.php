@@ -11,9 +11,9 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="consumables.html">耗材管理</a></li>
-                        <li class="breadcrumb-item active">耗材進貨</li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active"><a href="{{Route('restock.index')}}">耗材進貨列表</a></li>
+                        <li class="breadcrumb-item active">新增耗材進貨</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -31,7 +31,7 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for="">耗材名稱</label>
-                                <select class="form-control" name="ReName" id="">
+                                <select class="form-control" name="CoName" id="">
                                     <option value="">請選擇耗材名稱...</option>
                                     @foreach($consume as $key)
                                     <option value="{{$key->id}}">{{$key->co_standardName}}</option>
@@ -57,12 +57,11 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">耗材廠商</label>
-                                <select class="form-control" name="CoName" id="">
+                                <select class="form-control" name="CaName" id="">
                                     <option value="">請選擇耗材廠商...</option>
                                     @foreach($category as $key)
                                     <option value="{{$key->ca_id}}">{{$key->ca_Name}}</option>
                                     @endforeach
-
                                 </select>
                             </div>
                             <div class="form-group col-md-6">

@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','耗材進貨管理 《鐵祥企業》')
+@section('title','耗材進貨列表 《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,13 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">耗材進貨管理</h1>
+                    <h1 class="m-0">耗材進貨列表</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="consumables.html">耗材管理</a></li>
-                        <li class="breadcrumb-item active">耗材進貨管理</li>
+                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item active">進貨列表</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->

@@ -41,13 +41,13 @@ class RestockController extends Controller
     public function store(Request $request)
     {
         Restock::FirstOrCreate([
-            'ca_id'=>$request->CoName,                      //廠商種類
-            'co_id'=>$request->CoName,                      //耗材名稱
-            're_date'=>$request->Date,
-            're_quantity'=>$request->Quantity,
-            're_unitprice'=>$request->UnitPrice,
-            're_count'=>$request->Count,
-            're_memo'=>$request->Memo,
+            'factorycategory_id'=>$request->CaName,              //廠商種類
+            'consume_id'=>$request->CoName,                      //耗材名稱
+            're_date'=>$request->Date,                           //進貨日期
+            're_quantity'=>$request->Quantity,                   //進貨數量
+            're_unitprice'=>$request->UnitPrice,                 //進貨單價
+            're_count'=>$request->Count,                         //小計
+            're_memo'=>$request->Memo,                           //備註
         ]);
         return redirect()->action([RestockController::class, 'index']);
 

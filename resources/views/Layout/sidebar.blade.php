@@ -24,13 +24,13 @@
                         <li class="nav-item">
                             <a href="{{Route('management.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p class="pl-3">清單</p>
+                                <p class="pl-3">廠商清單</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="{{Route('category.index')}}"  class="nav-link">
+                            <a href="{{Route('category.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p class="pl-3">種類</p>
+                                <p class="pl-3">廠商種類</p>
                             </a>
                         </li>
                     </ul>
@@ -44,38 +44,35 @@
                 <li class="nav-item">
                     <a href="{{Route('processing.index')}}" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>加工</p>
+                        <p>加工管理</p>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a href="#"  class="nav-link">
+                    <a href="#" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>
-                            耗材
-                            <i class="right fas fa-angle-left"></i>
-                        </p>
+                        <p>耗材管理<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{Route('consume.index')}}"  class="nav-link">
+                            <a href="{{Route('consume.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p class="pl-3">列表</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                        <a href="{{Route('restock.index')}}" class="nav-link">
+                            <a href="{{Route('restock.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p class="pl-3">進貨</p>
+                                <p class="pl-3">進貨管理</p>
                             </a>
                         </li>
-                        <li class="nav-item">
-                            <a href="./consumables-usage.html"  class="nav-link">
+                        {{-- <li class="nav-item">
+                            <a href="./consumables-usage.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p class="pl-3">使用紀錄</p>
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="./consumables-inventory.html"  class="nav-link">
+                            <a href="./consumables-inventory.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p class="pl-3">庫存</p>
                             </a>
@@ -86,9 +83,9 @@
                                 <p class="pl-3">月結查詢</p>
                             </a>
                         </li>
-                    </ul>
-                    </ul>
-                </li>
+                    </ul> --}}
+            </ul>
+            </li>
             </ul>
         </nav>
         <!-- /.sidebar-menu -->

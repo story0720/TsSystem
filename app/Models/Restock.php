@@ -9,16 +9,16 @@ class Restock extends Model
 {
     use HasFactory;
     protected $table = 'restocks';
-    protected $fillable = ['ca_id','co_id','re_time','re_quantity','re_unitprice','re_count','re_memo','re_date'];
+    protected $fillable = ['consume_id','factorycategory_id','re_time','re_quantity','re_unitprice','re_count','re_memo','re_date'];
 
     //耗材管理(名稱、規格)
     public function Consume(){
         return
-         $this->belongsTo(Consume::class,'co_id','id');
+         $this->belongsTo(Consume::class,'consume_id','id');
     }
     //廠商種類管理
     public function FactoryCategory(){
-        return $this->belongsTo(FactoryCategory::class,'id','ca_id');
+        return $this->belongsTo(FactoryCategory::class,'factorycategory_id','ca_id');
     }
 }
 

@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','新增廠商 《鐵祥企業》')
+@section('title','編輯廠商 《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,13 +7,13 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">新增廠商</h1>
+                    <h1 class="m-0">編輯廠商</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="client.html">廠商管理</a></li>
-                        <li class="breadcrumb-item active">新增廠商</li>
+                        <li class="breadcrumb-item"><a href="client.html">廠商清單</a></li>
+                        <li class="breadcrumb-item active">編輯廠商</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -32,7 +32,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col">
-                                <label>種類</label>
+                                <label>廠商種類</label>
                                 <select class="form-control" id="client_category" name="category">
                                     <option>請選擇種類</option>
                                     @foreach ($category as $item)
