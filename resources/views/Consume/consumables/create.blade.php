@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','新增管理 《鐵祥企業》')
+@section('title','新增耗材 《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -53,7 +53,7 @@
                                     <!-- /input-group -->
                                 </div>
                                 <div id="tag"></div>
-                                <div class="alert alert-dismissible mb-0 pt-2 pb-0 pr-5 pl-0">
+                                <div class="alert alert-dismissible mb-0 pt-2 pb-0 pr-5 pl-0" id="test">
                                     <button type="button" class="close pl-1 pb-1" data-dismiss="alert"
                                         aria-hidden="true">&times;</button>
                                     <div class="input-group">

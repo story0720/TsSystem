@@ -53,6 +53,11 @@ Route::get("/restock/{id}/edit", [App\Http\Controllers\RestockController::class,
 Route::put("/restock/{id}", [App\Http\Controllers\RestockController::class, 'update'])->name('restock.update');
 Route::delete("/restock/{id}/delete", [App\Http\Controllers\RestockController::class, 'destroy'])->name('restock.delete');
 
+//耗材月結
+Route::resource("/monthly",App\Http\Controllers\MonthlyController::class);
+
+//耗材使用紀錄
+Route::resource("/usage",App\Http\Controllers\UsageController::class);
 
 //標籤雲
 Route::resource("/tag",App\Http\Controllers\TagController::class)->only(['index','destory']);
