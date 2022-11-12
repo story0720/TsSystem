@@ -61,3 +61,8 @@ Route::resource("/usage",App\Http\Controllers\UsageController::class);
 
 //標籤雲
 Route::resource("/tag",App\Http\Controllers\TagController::class)->only(['index','destory']);
+
+
+//訂單管理
+Route::resource("/order",App\Http\Controllers\orderController::class);
+

@@ -36,7 +36,7 @@
                     </ul>
                 </li>
                 <li class="nav-item">
-                    <a href="./order.html" target="_blank" class="nav-link">
+                    <a href="{{Route('order.index')}}" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
                         <p>訂單</p>
                     </a>
