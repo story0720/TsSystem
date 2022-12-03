@@ -25,22 +25,26 @@
     <div class="content">
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header row">
-                    <div class="col-md-6">
-                        <select class="form-control" name="" id="">
-                            <option value="">2022/09</option>
-                            <option value="">2022/08</option>
-                            <option value="">2022/07</option>
-                        </select>
-                    </div>
-                    <div class="col-md-3 rounded">
-                        <div class="row bg-light">
-                            <span class="col-3 py-2 bg-info rounded-left">月總結</span>
-                            <span class="col-9 py-2">${{$money}}</span>
+                <div class="card-header"> <!--d-flex align-items-center justify-content-between-->
+                    <div class="d-flex">
+                        <div class="flex-fill flex-grow-1 mr-3">
+                            <input type="number" class="form-control" placeholder="請輸入年份(數字)" min="2022">
                         </div>
-                    </div>
-                    <div class="col-md-3 py-2">
-                        ※ 月結方式：上月26日至每月25日前。
+                        <div class="flex-fill flex-grow-1 mr-3">
+                            <input type="number" class="form-control" placeholder="請輸入月份(數字)" min="1" max="12">
+                        </div>
+                        <div>
+                            <button type="submit" class="btn btn-primary">查詢</button>
+                        </div>
+                        <div class="flex-fill rounded mx-3">
+                            <div class="d-flex">
+                                <div class="px-4 py-2 bg-info rounded-left">月總結</div>
+                                <div class="flex-grow-1 p-2 bg-light">${{$money}}</div>
+                            </div>
+                        </div>
+                        <div class="py-2">
+                            ※ 月結方式：上月26日至每月25日前。
+                        </div>
                     </div>
                 </div>
                 <!-- /.card-header -->

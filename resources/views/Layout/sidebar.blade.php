@@ -24,7 +24,7 @@
                         <li class="nav-item">
                             <a href="{{Route('management.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p class="pl-3">廠商清單</p>
+                                <p class="pl-3">廠商列表</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -44,25 +44,25 @@
                 <li class="nav-item">
                     <a href="{{Route('processing.index')}}" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>加工管理</p>
+                        <p>加工</p>
                     </a>
                 </li>
                 <li class="nav-item menu-open">
-                    <a href="#" class="nav-link active">
+                    <a href="#" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
-                        <p>耗材管理<i class="right fas fa-angle-left"></i></p>
+                        <p>耗材<i class="right fas fa-angle-left"></i></p>
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href="{{Route('consume.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p class="pl-3">列表</p>
+                                <p class="pl-3">耗材列表</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{Route('restock.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p class="pl-3">進貨管理</p>
+                                <p class="pl-3">耗材進貨</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -74,7 +74,7 @@
                         <li class="nav-item">
                             <a href="./consumables-inventory.html" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p class="pl-3">庫存</p>
+                                <p class="pl-3">耗材庫存</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -84,6 +84,30 @@
                             </a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item menu-open">
+                    <a href="#" class="nav-link">
+                        <i class="fas fa-circle nav-icon"></i>
+                        <p>
+                            材料(尚未)
+                            <i class="right fas fa-angle-left"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="#" target="_top" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p class="pl-3">材料列表</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" target="_top" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p class="pl-3">材料庫存</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
             </li>
             </ul>

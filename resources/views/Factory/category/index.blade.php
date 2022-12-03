@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','廠商種類列表 《鐵祥企業》')
+@section('title','廠商種類《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">廠商種類列表</h1>
+                    <h1 class="m-0">廠商種類</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">廠商種類列表</li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
+                        <li class="breadcrumb-item active">廠商種類</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header text-left">
-                    <a href="{{Route('category.create')}}" class="btn btn-success">新增廠商種類</a>
+                    <a href="{{Route('category.create')}}" class="btn btn-success">新增種類</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

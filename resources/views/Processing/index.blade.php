@@ -1,7 +1,6 @@
 @extends('layout.index')
-@section('title','加工管理 《鐵祥企業》')
+@section('title','加工列表《鐵祥企業》')
 @section('content')
-<!-- Content Wrapper. Contains page content -->
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -12,7 +11,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <li class="breadcrumb-item"><a href="/">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#">Home</a></li>
                         <li class="breadcrumb-item active">加工列表</li>
                     </ol>
                 </div><!-- /.col -->
@@ -24,7 +23,7 @@
     <div class="content">
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header">
+                <div class="card-header text-left">
                     <a href="{{Route('processing.create')}}" class="btn btn-success">新增加工</a>
                 </div>
                 <!-- /.card-header -->

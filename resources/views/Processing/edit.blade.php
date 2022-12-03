@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','新增加工 《鐵祥企業》')
+@section('title','編輯加工《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item active"><a href="{{Route('processing.index')}}">加工列表</a></li>
+                        <li class="breadcrumb-item"><a href="{{Route('processing.index')}}">加工列表</a></li>
                         <li class="breadcrumb-item active">編輯加工</li>
                     </ol>
                 </div><!-- /.col -->

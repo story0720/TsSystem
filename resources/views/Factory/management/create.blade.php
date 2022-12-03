@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','新增廠商 《鐵祥企業》')
+@section('title','新增廠商《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="#">Home</a></li>
-                        <li class="breadcrumb-item"><a href="{{Route('management.index')}}">廠商清單</a></li>
+                        <li class="breadcrumb-item"><a href="{{Route('management.index')}}">廠商列表</a></li>
                         <li class="breadcrumb-item active">新增廠商</li>
                     </ol>
                 </div><!-- /.col -->

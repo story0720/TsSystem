@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Processing;
-use Exception;
 use Illuminate\Http\Request;
-use Symfony\Component\Process\Process;
 
-class ProcessingController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class ProcessingController extends Controller
      */
     public function index()
     {
-        $data=Processing::orderby('id', 'desc')->get();
-        return view('Processing.index',['data'=>$data]);
+        return "test";
     }
 
     /**
@@ -27,7 +23,7 @@ class ProcessingController extends Controller
      */
     public function create()
     {
-        return view('Processing.create');
+        //
     }
 
     /**
@@ -38,12 +34,7 @@ class ProcessingController extends Controller
      */
     public function store(Request $request)
     {
-        $data = new Processing();
-        $data->pr_categoryname = $request->Categoryname;
-        $data->pr_standard = $request->Standard;
-        $data->pr_memo = $request->Memo;
-        $data->save();
-        return redirect()->action([ProcessingController::class, 'index']);
+        //
     }
 
     /**
@@ -65,8 +56,7 @@ class ProcessingController extends Controller
      */
     public function edit($id)
     {
-        $edit=Processing::find($id);
-        return view('processing.edit',['edit'=>$edit]);
+        //
     }
 
     /**
@@ -78,12 +68,7 @@ class ProcessingController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=Processing::find($id);
-        $data->pr_categoryname= $request->Categoryname;
-        $data->pr_standard =$request->Standard;
-        $data->pr_memo = $request->Memo;
-        $data->save();
-        return redirect()->action([ProcessingController::class, 'index']);
+        //
     }
 
     /**
@@ -94,12 +79,6 @@ class ProcessingController extends Controller
      */
     public function destroy($id)
     {
-        try {
-            Processing::find($id)->delete();
-            return redirect()->action([ProcessingController::class, 'index']);
-        }catch (Exception $e) {
-            //return "刪除失敗";
-            return $e->getMessage();
-        }
+        //
     }
 }

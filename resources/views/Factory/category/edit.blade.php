@@ -1,5 +1,5 @@
 @extends('layout.index')
-@section('title','廠商種類管理 《鐵祥企業》')
+@section('title','編輯種類《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -7,13 +7,13 @@
         <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">編輯廠商種類</h1>
+                        <h1 class="m-0">編輯種類</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{Route('category.index')}}">廠商清單列表</a></li>
-                            <li class="breadcrumb-item active">編輯廠商種類</li>
+                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{Route('category.index')}}">廠商種類</a></li>
+                            <li class="breadcrumb-item active">編輯種類</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
