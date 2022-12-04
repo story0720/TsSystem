@@ -15,8 +15,8 @@ class ProcessingSeeder extends Seeder
     public function run()
     {
         DB::table('processings')->insert([
-            ['pr_categoryname'=>"加工種類1",'pr_standard'=>"加工規格1"],
-            ['pr_categoryname'=>"加工種類2",'pr_standard'=>"加工規格2"],
+            ['pr_categoryname'=>"加工方法1",'pr_standard'=>"加工規格1"],
+            ['pr_categoryname'=>"加工方法2",'pr_standard'=>"加工規格2"],
         ]);
     }
 }

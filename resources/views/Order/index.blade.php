@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="order-add.html" class="btn btn-primary">新增訂單</a>
+                    <a href="{{Route('order.create')}}" class="btn btn-primary">新增訂單</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">

@@ -31,7 +31,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="form-group col">
-                                <label for="">加工種類</label>
+                                <label for="">加工方法</label>
                                 <input type="text" class="form-control" name="Categoryname" id="" placeholder="請輸入加工種類...">
                             </div>
                         </div>

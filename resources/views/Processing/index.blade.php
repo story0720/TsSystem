@@ -32,7 +32,7 @@
                         <thead>
                             <tr>
                                 <th>#</th>
-                                <th>加工種類</th>
+                                <th>加工方法</th>
                                 <th>加工規格</th>
                                 <th>備註</th>
                                 <th class="text-center" style="width: 10rem;">功能</th>

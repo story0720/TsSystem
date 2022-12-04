@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Processing;
+use App\Models\FactoryManagement;
 
 class OrderController extends Controller
 {
@@ -13,7 +15,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return "test";
+        return view('Order.index') ;
     }
 
     /**
@@ -23,7 +25,9 @@ class OrderController extends Controller
      */
     public function create()
     {
-        //
+        $processing=Processing::all();
+        $factoryManagement=FactoryManagement::all();
+        return view('order.create',['processing'=>$processing,'factoryManagement'=>$factoryManagement]);
     }
 
     /**
