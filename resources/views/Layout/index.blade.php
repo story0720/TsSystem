@@ -24,12 +24,12 @@
 <body class="hold-transition sidebar-mini">
     <div class="wrapper">
         <!-- Navbar -->
-        @include('layout.header')
+        @include('Layout.header')
         <!-- /.navbar -->
         <!-- Main Sidebar Container -->
-        @include('layout.sidebar')
+        @include('Layout.sidebar')
         <!-- Content Wrapper. Contains page content -->
-        {{-- @include('layout.content') --}}
+        {{-- @include('Layout.content') --}}
         @yield('content')
         <!-- /.content-wrapper -->
     </div>

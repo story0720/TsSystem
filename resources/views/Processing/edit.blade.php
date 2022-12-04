@@ -1,4 +1,4 @@
-@extends('layout.index')
+@extends('Layout.index')
 @section('title','編輯加工《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
