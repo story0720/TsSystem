@@ -64,5 +64,5 @@ Route::resource("/tag",App\Http\Controllers\TagController::class)->only(['index'
 
 
 //訂單管理
-Route::resource("/order",App\Http\Controllers\orderController::class);
+Route::resource("/order",App\Http\Controllers\OrderController::class);
 
