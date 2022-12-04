@@ -17,7 +17,7 @@ class ProcessingController extends Controller
     public function index()
     {
         $data=Processing::orderby('id', 'desc')->get();
-        return view('processing.index',['data'=>$data]);
+        return view('Processing.index',['data'=>$data]);
     }
 
     /**
@@ -27,7 +27,7 @@ class ProcessingController extends Controller
      */
     public function create()
     {
-        return view('processing.create');
+        return view('Processing.create');
     }
 
     /**
@@ -66,7 +66,7 @@ class ProcessingController extends Controller
     public function edit($id)
     {
         $edit=Processing::find($id);
-        return view('processing.edit',['edit'=>$edit]);
+        return view('Processing.edit',['edit'=>$edit]);
     }
 
     /**
