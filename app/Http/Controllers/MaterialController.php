@@ -2,12 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Consume;
-use App\Models\Tag;
-use Exception;
 use Illuminate\Http\Request;
 
-class ConsumeController extends Controller
+class MaterialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,8 +13,7 @@ class ConsumeController extends Controller
      */
     public function index()
     {
-        $data=Consume::orderby('id', 'desc')->get();
-        return view('Consume.consumables.index',['data'=>$data]);
+        return view('Material.index');
     }
 
     /**
@@ -27,7 +23,7 @@ class ConsumeController extends Controller
      */
     public function create()
     {
-        return view("Consume.consumables.create");
+        return view('material.create');
     }
 
     /**
@@ -38,19 +34,7 @@ class ConsumeController extends Controller
      */
     public function store(Request $request)
     {
-        $data=new Consume();
-        $data->co_standardName=$request->StandardName;
-        // $data->co_standard=$request->Standard;
-        $data->co_memo=$request->Memo;
-        $data->save();
-        $tags=explode(',',$request->Tag);
-        foreach($tags as $item=>$key){
-            $model=Tag::firstorCreate(['name'=>$key]);
-            $data->tags()->attach($model->id);
-        }
-
-
-        return redirect()->action([ConsumeController::class, 'index']);
+        //
     }
 
     /**
@@ -72,8 +56,7 @@ class ConsumeController extends Controller
      */
     public function edit($id)
     {
-        $edit=Consume::find($id);
-        return view('Consume.consumables.edit',['edit'=>$edit]);
+        //
     }
 
     /**
@@ -85,12 +68,7 @@ class ConsumeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $data=Consume::find($id);
-        $data->co_standardName= $request->StandardName;
-        $data->co_standard =$request->Standard;
-        $data->co_memo = $request->Memo;
-        $data->save();
-        return redirect()->action([ConsumeController::class, 'index']);
+        //
     }
 
     /**
@@ -101,17 +79,12 @@ class ConsumeController extends Controller
      */
     public function destroy($id)
     {
-        try {
-            Consume::find($id)->delete();
-            return redirect()->action([ConsumeController::class, 'index']);
-        }catch (Exception $e) {
-            //return "刪除失敗";
-            return $e->getMessage();
-        }
+        //
     }
-    //耗材庫存管理
+
+    //材料庫存管理
     public function inventory()
     {
-        return view('Consume.consumables.inventory');
+        return view('material.inventory');
     }
 }

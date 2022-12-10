@@ -1,5 +1,5 @@
 @extends('Layout.index')
-@section('title', '新增訂單《鐵祥企業》')
+@section('title', '編輯訂單《鐵祥企業》')
 @section('content')
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
@@ -23,6 +23,7 @@
         <!-- /.content-header -->
 
         <!-- Main content -->
+
         <div class="content">
             <div class="container-fluid">
                 <div class="card">
@@ -36,7 +37,7 @@
                                     <select class="form-control" name="TradeName" id="client_name">
                                         <option>請選擇廠商名稱...</option>
                                         @foreach ($factoryManagement as $item)
-                                            <option value="{{ $item->mn_id }}">{{ $item->mn_Name }}</option>
+                                                <option value="{{ $item->mn_id }}" {{$order->mn_id == $item->mn_id?"checked":""}}>{{ $item->mn_Name }}</option>                                            
                                         @endforeach
                                     </select>
                                 </div>
@@ -146,4 +147,3 @@
     </div>
     <!-- /.content-wrapper -->
 @endsection
-

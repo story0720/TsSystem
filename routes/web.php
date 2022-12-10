@@ -36,14 +36,16 @@ Route::get("/processing/{id}/edit", [App\Http\Controllers\ProcessingController::
 Route::put("/processing/{id}", [App\Http\Controllers\ProcessingController::class, 'update'])->name('processing.update');
 Route::delete("/processing/{id}/delete", [App\Http\Controllers\ProcessingController::class, 'destroy'])->name('processing.delete');
 
+//耗材庫存管理
+Route::get("/consume/inventory", [App\Http\Controllers\ConsumeController::class, 'inventory'])->name('consume.inventory');
 
 //耗材管理
-Route::get("/Consume", [App\Http\Controllers\ConsumeController::class, 'index'])->name('consume.index');
-Route::get("/Consume/create", [App\Http\Controllers\ConsumeController::class, 'create'])->name('consume.create');
-Route::post("/Consume", [App\Http\Controllers\ConsumeController::class, 'store'])->name('consume.store');
-Route::get("/Consume/{id}/edit", [App\Http\Controllers\ConsumeController::class, 'edit'])->name('consume.edit');
-Route::put("/Consume/{id}", [App\Http\Controllers\ConsumeController::class, 'update'])->name('consume.update');
-Route::delete("/Consume/{id}/delete", [App\Http\Controllers\ConsumeController::class, 'destroy'])->name('consume.delete');
+Route::get("/consume", [App\Http\Controllers\ConsumeController::class, 'index'])->name('consume.index');
+Route::get("/consume/create", [App\Http\Controllers\ConsumeController::class, 'create'])->name('consume.create');
+Route::post("/consume", [App\Http\Controllers\ConsumeController::class, 'store'])->name('consume.store');
+Route::get("/consume/{id}/edit", [App\Http\Controllers\ConsumeController::class, 'edit'])->name('consume.edit');
+Route::put("/consume/{id}", [App\Http\Controllers\ConsumeController::class, 'update'])->name('consume.update');
+Route::delete("/consume/{id}/delete", [App\Http\Controllers\ConsumeController::class, 'destroy'])->name('consume.delete');
 
 //耗材進貨管理
 Route::get("/restock", [App\Http\Controllers\RestockController::class, 'index'])->name('restock.index');
@@ -66,3 +68,7 @@ Route::resource("/tag",App\Http\Controllers\TagController::class)->only(['index'
 //訂單管理
 Route::resource("/order",App\Http\Controllers\OrderController::class);
 
+//材料庫存管理
+Route::get('material/inventory',[App\Http\Controllers\MaterialController::class,'inventory'])->name('material.inventory');
+//材料管理
+Route::resource('/material',App\Http\Controllers\MaterialController::class);

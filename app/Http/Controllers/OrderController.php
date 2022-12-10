@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Processing;
 use App\Models\FactoryManagement;
-
+use App\Models\Order;
 class OrderController extends Controller
 {
     /**
@@ -15,7 +15,8 @@ class OrderController extends Controller
      */
     public function index()
     {
-        return view('Order.index') ;
+        $order=Order::all();
+        return view('Order.index',['order'=>$order]) ;
     }
 
     /**
@@ -27,7 +28,7 @@ class OrderController extends Controller
     {
         $processing=Processing::all();
         $factoryManagement=FactoryManagement::all();
-        return view('order.create',['processing'=>$processing,'factoryManagement'=>$factoryManagement]);
+        return view('Order.create',['processing'=>$processing,'factoryManagement'=>$factoryManagement]);
     }
 
     /**
@@ -38,7 +39,19 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $order=new order();
+        $order->mn_id=$request->TradeName;
+        $order->pr_id=$request->CategoryName;
+        $order->serialnumber=$request->SerialNumber;
+        $order->materialdate=$request->Materialdate;
+        $order->shipdate=$request->Shipdate;
+        $order->estimatedquantity=$request->Estimatedquantity;        
+        $order->unitprice=$request->Unitprice;
+        $order->count=$request->Count;
+        $order->memo=$request->Memo;
+
+        $order->save();
+        return redirect()->action([OrderController::class, 'index']);
     }
 
     /**
@@ -60,7 +73,10 @@ class OrderController extends Controller
      */
     public function edit($id)
     {
-        //
+        $order=Order::find($id);
+        $processing=Processing::all();
+        $factoryManagement=FactoryManagement::all();
+        return View('Order.edit',['order'=>$order,'processing'=>$processing,'factoryManagement'=>$factoryManagement]);
     }
 
     /**
@@ -83,6 +99,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Order::destroy($id);
+        return redirect()->action([OrderController::class, 'index']);
     }
 }
