@@ -23,7 +23,7 @@ class MaterialController extends Controller
      */
     public function create()
     {
-        return view('material.create');
+        return view('Material.create');
     }
 
     /**
@@ -85,6 +85,6 @@ class MaterialController extends Controller
     //材料庫存管理
     public function inventory()
     {
-        return view('material.inventory');
+        return view('Material.inventory');
     }
 }
