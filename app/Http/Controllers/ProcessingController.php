@@ -38,9 +38,10 @@ class ProcessingController extends Controller
      */
     public function store(Request $request)
     {
+        //dd($request->all());
         $data = new Processing();
         $data->pr_categoryname = $request->Categoryname;
-        $data->pr_standard = $request->Standard;
+        $data->pr_standard = $request->standard;
         $data->pr_memo = $request->Memo;
         $data->save();
         return redirect()->action([ProcessingController::class, 'index']);

@@ -73,7 +73,7 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">發料日期</label>
-                                    <input type="date" value="2022-12-31" name="Materialdate" class="form-control"
+                                    <input type="date" value="{{date('Y-m-d')}}" name="Materialdate" class="form-control"
                                         placeholder="請輸入發料日期..." />
                                 </div>
                                 <div class="form-group col-md-6">
@@ -83,13 +83,13 @@
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">出貨日期</label>
-                                    <input type="date" value="2022-12-31" name="Shipdate" class="form-control"
+                                    <input type="date" value="{{date('Y-m-d')}}" name="Shipdate" class="form-control"
                                         placeholder="請輸入出貨日期..." />
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">應交數量</label>
-                                    <input type="number" name="Estimatedquantity" class="form-control" id=""
-                                        min="0" value="0" placeholder="請輸入應交數量...">
+                                    <input type="number" name="Estimatedquantity" class="form-control" id="Estimatedquantity"
+                                        min="0" value="0" placeholder="請輸入應交數量..." oninput="count()">
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for="">金額(成品單價)</label>
@@ -100,7 +100,7 @@
                                             </span>
                                         </div>
                                         <input type="number" name="Unitprice" class="form-control" id="Unitprice"
-                                            min="0" placeholder="請輸入金額(成品單價)...">
+                                            min="0" placeholder="請輸入金額(成品單價)..." oninput="count()">
                                     </div>
                                 </div>
                                 <div class="form-group col-md-6">
@@ -112,7 +112,7 @@
                                             </span>
                                         </div>
                                         <input type="number" name="Count" class="form-control text-danger"
-                                            id="Count" min="0" value="0"
+                                            id="Count" min="0" 
                                             placeholder="系統自動計算（公式：單價 × 應交數量）">
                                     </div>
                                 </div>
@@ -147,3 +147,11 @@
     <!-- /.content-wrapper -->
 @endsection
 
+<script>
+    function count(){
+        var Estimatedquantity= $("input[name='Estimatedquantity']").val();
+        var Unitprice=$("input[name='Unitprice']").val();
+        $('#Count').val(Estimatedquantity*Unitprice);
+    }
+
+</script>
