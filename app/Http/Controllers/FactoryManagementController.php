@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Factory\Management;
 use App\Models\FactoryCategory;
 use App\Models\FactoryManagement;
 use Illuminate\Http\Request;
@@ -37,17 +38,17 @@ class FactoryManagementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
+    public function store(RequestsFactoryManagement $request)
+    {       
         $data=new FactoryManagement();
         $data->ca_id= $request->category;
-        $data->mn_Name =$request->Name;
-        $data->mn_Contact = $request->Contact;
-        $data->mn_Tel1 = $request->Tel1;
-        $data->mn_Tel2 = $request->Tel2;
-        $data->mn_Fax = $request->Fax;
-        $data->mn_Address = $request->Address;
-        $data->mn_Memo = $request->Memo;
+        $data->mn_Name =$request->name;
+        $data->mn_Contact = $request->contact;
+        $data->mn_Tel1 = $request->tel1;
+        $data->mn_Tel2 = $request->tel2;
+        $data->mn_Fax = $request->fax;
+        $data->mn_Address = $request->address;
+        $data->mn_Memo = $request->memo;
         $data->save();
         return redirect()->action([FactoryManagementController::class, 'index']);
     }
@@ -83,17 +84,17 @@ class FactoryManagementController extends Controller
      * @param  \App\Models\FactoryManagement  $factoryManagement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestsFactoryManagement $request, $id)
     {
         $data=FactoryManagement::find($id);
         $data->ca_id= $request->category;
-        $data->mn_Name =$request->Name;
-        $data->mn_Contact = $request->Contact;
-        $data->mn_Tel1 = $request->Tel1;
-        $data->mn_Tel2 = $request->Tel2;
-        $data->mn_Fax = $request->Fax;
-        $data->mn_Address = $request->Address;
-        $data->mn_Memo = $request->Memo;
+        $data->mn_Name =$request->name;
+        $data->mn_Contact = $request->contact;
+        $data->mn_Tel1 = $request->tel1;
+        $data->mn_Tel2 = $request->tel2;
+        $data->mn_Fax = $request->fax;
+        $data->mn_Address = $request->address;
+        $data->mn_Memo = $request->memo;
         $data->save();
         return redirect()->action([FactoryManagementController::class, 'index']);
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Factory\Category;
 use App\Models\FactoryCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -37,11 +38,11 @@ class FactoryCategoryController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Category $request)
     {
         $data=new FactoryCategory();
-        $data->ca_Name=$request->Name;
-        $data->ca_Memo=$request->Memo;
+        $data->ca_Name=$request->name;
+        $data->ca_Memo=$request->memo;
         $data->save();
         return redirect()->action([FactoryCategoryController::class, 'index']);
     }
@@ -76,11 +77,11 @@ class FactoryCategoryController extends Controller
      * @param  \App\Models\FactoryCategory  $factoryCategory
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request,$id)
+    public function update(Category $request,$id)
     {
         $data=FactoryCategory::find($id);
-        $data->ca_Name=$request->Name;
-        $data->ca_Memo=$request->Memo;
+        $data->ca_Name=$request->name;
+        $data->ca_Memo=$request->memo;
         $data->save();
         return redirect()->action([FactoryCategoryController::class, 'index']);
     }

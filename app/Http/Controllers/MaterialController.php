@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Material;
 use Illuminate\Http\Request;
 
 class MaterialController extends Controller
@@ -32,7 +33,7 @@ class MaterialController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Material $request)
     {
         //
     }

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Processing as RequestsProcessing;
 use App\Models\Processing;
 use Exception;
 use Illuminate\Http\Request;
@@ -36,13 +37,12 @@ class ProcessingController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(RequestsProcessing $request)
     {
-        //dd($request->all());
         $data = new Processing();
-        $data->pr_categoryname = $request->Categoryname;
+        $data->pr_categoryname = $request->categoryname;
         $data->pr_standard = $request->standard;
-        $data->pr_memo = $request->Memo;
+        $data->pr_memo = $request->memo;
         $data->save();
         return redirect()->action([ProcessingController::class, 'index']);
     }
@@ -77,12 +77,12 @@ class ProcessingController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(RequestsProcessing $request, $id)
     {
         $data=Processing::find($id);
-        $data->pr_categoryname= $request->Categoryname;
-        $data->pr_standard =$request->Standard;
-        $data->pr_memo = $request->Memo;
+        $data->pr_categoryname= $request->categoryname;
+        $data->pr_standard =$request->standard;
+        $data->pr_memo = $request->memo;
         $data->save();
         return redirect()->action([ProcessingController::class, 'index']);
     }

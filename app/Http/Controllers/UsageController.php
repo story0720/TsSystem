@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Consume\Usage as ConsumeUsage;
 use Illuminate\Http\Request;
 use App\Models\Consume;
 use App\Models\Usage;
@@ -36,11 +37,11 @@ class UsageController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConsumeUsage $request)
     {
         $data=new Usage();
-        $data->co_id=$request->StandardName;
-        $data->tag_id=$request->Specification;
+        $data->co_id=$request->standardname;
+        $data->tag_id=$request->specification;
         $data->quantity=$request->quantity;
         $data->receiver=$request->receiver;
         $data->memo=$request->memo;
@@ -78,7 +79,7 @@ class UsageController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ConsumeUsage $request, $id)
     {
         //
     }

@@ -10,7 +10,7 @@ class Consume extends Model
     use HasFactory;
     protected $table = 'consumes';
     protected $primaryKey='id';
-    protected $fillable = ['ca_Name','ca_Memo'];
+    protected $fillable = ['ca_Name','ca_Memo','co_Standard'];
 
 
     //進貨管理

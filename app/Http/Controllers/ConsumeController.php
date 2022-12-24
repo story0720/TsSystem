@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Consume\Consumable;
 use App\Models\Consume;
 use App\Models\Tag;
 use Exception;
@@ -16,8 +17,8 @@ class ConsumeController extends Controller
      */
     public function index()
     {
-        $data=Consume::orderby('id', 'desc')->get();
-        return view('Consume.consumables.index',['data'=>$data]);
+        $data = Consume::orderby('id', 'desc')->get();
+        return view('Consume.consumables.index', ['data' => $data]);
     }
 
     /**
@@ -36,21 +37,25 @@ class ConsumeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Consumable $request)
     {
-        $data=new Consume();
-        $data->co_standardName=$request->StandardName;
-        // $data->co_standard=$request->Standard;
-        $data->co_memo=$request->Memo;
-        $data->save();
-        $tags=explode(',',$request->Tag);
-        foreach($tags as $item=>$key){
-            $model=Tag::firstorCreate(['name'=>$key]);
-            $data->tags()->attach($model->id);
+        dd($request->al());
+        try{
+            $data = new Consume();
+            $data->co_standardName = $request->standardname;
+            //$data->co_standard = $request->standard;
+            $data->co_memo = $request->memo;
+            $tags = explode(',', $request->tag);
+            $data->save();
+            foreach ($tags as $item => $key) {
+                $model = Tag::firstorCreate(['name' => $key]);
+                $data->tags()->attach($model->id);
+            }
+            return redirect()->action([ConsumeController::class, 'index']);
+        }catch(Exception $x){
+            return "儲存失敗"+$x;
         }
-
-
-        return redirect()->action([ConsumeController::class, 'index']);
+       
     }
 
     /**
@@ -72,8 +77,8 @@ class ConsumeController extends Controller
      */
     public function edit($id)
     {
-        $edit=Consume::find($id);
-        return view('Consume.consumables.edit',['edit'=>$edit]);
+        $edit = Consume::find($id);
+        return view('Consume.consumables.edit', ['edit' => $edit]);
     }
 
     /**
@@ -83,12 +88,12 @@ class ConsumeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Consumable $request, $id)
     {
-        $data=Consume::find($id);
-        $data->co_standardName= $request->StandardName;
-        $data->co_standard =$request->Standard;
-        $data->co_memo = $request->Memo;
+        $data = Consume::find($id);
+        $data->co_standardName = $request->standardname;
+        $data->co_standard = $request->standard;
+        $data->co_memo = $request->memo;
         $data->save();
         return redirect()->action([ConsumeController::class, 'index']);
     }
@@ -104,7 +109,7 @@ class ConsumeController extends Controller
         try {
             Consume::find($id)->delete();
             return redirect()->action([ConsumeController::class, 'index']);
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             //return "刪除失敗";
             return $e->getMessage();
         }

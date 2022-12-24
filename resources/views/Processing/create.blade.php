@@ -2,6 +2,15 @@
 @section('title', '新增加工《鐵祥企業》')
 @section('content')
     <div class="content-wrapper">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -28,12 +37,12 @@
                     <!-- form start -->
                     <form action="{{ Route('processing.store') }}" method="post">
                         @csrf
-                        <input type="hidden" id="standard" name="standard" value="">
+                        <input type="hidden" id="standard" name="standard" >
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="">加工方法</label>
-                                    <input type="text" class="form-control" name="Categoryname" id=""
+                                    <input type="text" class="form-control" name="categoryname" id=""
                                         placeholder="請輸入加工種類...">
                                 </div>
                             </div>
@@ -42,7 +51,8 @@
                                     <div class="form-group mb-0">
                                         <label for="">加工規格</label>
                                         <div class="input-group">
-                                            <input type="text" id="process_standard" class="form-control" placeholder="請輸入加工規格...">
+                                            <input type="text" id="process_standard" class="form-control"
+                                                placeholder="請輸入加工規格...">
                                             <span class="input-group-append">
                                                 <button type="button" onclick="addstandard()"
                                                     class="btn btn-info btn-flat">
@@ -56,7 +66,7 @@
                                         <button type="button" class="close pl-1 pb-1" data-dismiss="alert"
                                             aria-hidden="true">&times;</button>
 
-                                        <div class="input-group" >
+                                        <div class="input-group">
                                             <span class="pl-3 pr-2 py-1">1</span>
                                             <input type="text" class="form-control form-control-sm" value="規格1"
                                                 disabled>
@@ -76,7 +86,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="client_memo">備註</label>
-                                    <textarea class="form-control" id="client_memo" name="Memo" rows="5" placeholder="請輸入備註 ..."></textarea>
+                                    <textarea class="form-control" id="client_memo" name="memo" rows="5" placeholder="請輸入備註 ..."></textarea>
                                 </div>
                             </div>
                         </div>
@@ -97,14 +107,10 @@
 @endsection
 <script>
     function addstandard() {
-        let process_standard=$("#process_standard").val();
-        let data=process_standard.split(',');
-
-
-        addstandard
-
+        let process_standard = $("#process_standard").val();
+        let data = process_standard.split(',');
         console.log(data);
-        $('input[name="standard"]').val(process_standard);
+        $('input[name="standard"]').val(data);
         //standard=123456;
     }
 </script>

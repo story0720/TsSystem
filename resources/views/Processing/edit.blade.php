@@ -2,6 +2,15 @@
 @section('title', '編輯加工《鐵祥企業》')
 @section('content')
     <div class="content-wrapper">
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <!-- Content Header (Page header) -->
         <div class="content-header">
             <div class="container-fluid">
@@ -33,7 +42,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="">加工方法</label>
-                                    <input type="text" class="form-control" name="Categoryname"
+                                    <input type="text" class="form-control" name="categoryname"
                                         value="{{ $edit['pr_categoryname'] }}" id="" placeholder="請輸入加工種類...">
                                 </div>
                             </div>
@@ -42,7 +51,7 @@
                                     <div class="form-group mb-0">
                                         <label for="">加工規格</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" name="Standard"
+                                            <input type="text" class="form-control" name="standard"
                                                 placeholder="請輸入加工規格...">
                                             <span class="input-group-append">
                                                 <button type="button" class="btn btn-info btn-flat">
@@ -57,7 +66,7 @@
                                             <button type="button" class="close pl-1 pb-1" data-dismiss="alert"
                                                 aria-hidden="true">&times;</button>
                                             <div class="input-group">
-                                                <span class="badge badge-pill badge-info">{{ $item }}</span>                                               
+                                                <span class="badge badge-pill badge-info">{{ $item }}</span>
                                             </div>
                                         @endforeach
                                     </div>
@@ -75,7 +84,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="client_memo">備註</label>
-                                    <textarea class="form-control" id="client_memo" name="Memo" rows="5" placeholder="請輸入備註 ...">{{ $edit['pr_memo'] }}</textarea>
+                                    <textarea class="form-control" id="client_memo" name="memo" rows="5" placeholder="請輸入備註 ...">{{ $edit['pr_memo'] }}</textarea>
                                 </div>
                             </div>
                         </div>

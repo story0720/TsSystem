@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Consume\Restock as ConsumeRestock;
 use App\Models\Consume;
 use App\Models\FactoryCategory;
 use App\Models\Restock;
@@ -38,19 +39,18 @@ class RestockController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(ConsumeRestock $request)
     {
         Restock::FirstOrCreate([
-            'factorycategory_id'=>$request->CaName,              //廠商種類
-            'consume_id'=>$request->CoName,                      //耗材名稱
-            're_date'=>$request->Date,                           //進貨日期
-            're_quantity'=>$request->Quantity,                   //進貨數量
-            're_unitprice'=>$request->UnitPrice,                 //進貨單價
-            're_count'=>$request->Count,                         //小計
-            're_memo'=>$request->Memo,                           //備註
+            'factorycategory_id' => $request->caname,              //廠商種類
+            'consume_id' => $request->coname,                      //耗材名稱
+            're_date' => $request->date,                           //進貨日期
+            're_quantity' => $request->quantity,                   //進貨數量
+            're_unitprice' => $request->unitprice,                 //進貨單價
+            're_count' => $request->count,                         //小計
+            're_memo' => $request->memo,                           //備註
         ]);
         return redirect()->action([RestockController::class, 'index']);
-
     }
 
     /**
@@ -82,7 +82,7 @@ class RestockController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(ConsumeRestock $request, $id)
     {
         //
     }

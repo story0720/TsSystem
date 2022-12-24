@@ -90,7 +90,7 @@
                     <a href="#" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
                         <p>
-                            材料(尚未)
+                            材料
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
