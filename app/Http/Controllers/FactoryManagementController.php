@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\Factory\Management;
+use App\Http\Requests\Factory\ManagementRequest;
 use App\Models\FactoryCategory;
 use App\Models\FactoryManagement;
 use Illuminate\Http\Request;
@@ -38,11 +38,11 @@ class FactoryManagementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(RequestsFactoryManagement $request)
-    {       
-        $data=new FactoryManagement();
-        $data->ca_id= $request->category;
-        $data->mn_Name =$request->name;
+    public function store(ManagementRequest $request)
+    {
+        $data = new FactoryManagement();
+        $data->ca_id = $request->category;
+        $data->mn_Name = $request->name;
         $data->mn_Contact = $request->contact;
         $data->mn_Tel1 = $request->tel1;
         $data->mn_Tel2 = $request->tel2;
@@ -70,11 +70,11 @@ class FactoryManagementController extends Controller
      * @param  \App\Models\FactoryManagement  $factoryManagement
      * @return \Illuminate\Http\Response
      */
-    public function edit(FactoryManagement $factoryManagement,$id)
+    public function edit(ManagementRequest $factoryManagement, $id)
     {
         $category = FactoryCategory::all();
-        $edit=FactoryManagement::find($id);
-        return view('Factory.management.edit',['edit'=>$edit,'category'=>$category]);
+        $edit = FactoryManagement::find($id);
+        return view('Factory.management.edit', ['edit' => $edit, 'category' => $category]);
     }
 
     /**
@@ -86,9 +86,9 @@ class FactoryManagementController extends Controller
      */
     public function update(RequestsFactoryManagement $request, $id)
     {
-        $data=FactoryManagement::find($id);
-        $data->ca_id= $request->category;
-        $data->mn_Name =$request->name;
+        $data = FactoryManagement::find($id);
+        $data->ca_id = $request->category;
+        $data->mn_Name = $request->name;
         $data->mn_Contact = $request->contact;
         $data->mn_Tel1 = $request->tel1;
         $data->mn_Tel2 = $request->tel2;
@@ -110,7 +110,7 @@ class FactoryManagementController extends Controller
         try {
             FactoryManagement::find($id)->delete();
             return redirect()->action([FactoryManagementController::class, 'index']);
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             return "刪除失敗";
             //return $e->getMessage();
         }
