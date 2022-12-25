@@ -70,7 +70,7 @@ class FactoryManagementController extends Controller
      * @param  \App\Models\FactoryManagement  $factoryManagement
      * @return \Illuminate\Http\Response
      */
-    public function edit(ManagementRequest $factoryManagement, $id)
+    public function edit(request $factoryManagement, $id)
     {
         $category = FactoryCategory::all();
         $edit = FactoryManagement::find($id);
@@ -84,7 +84,7 @@ class FactoryManagementController extends Controller
      * @param  \App\Models\FactoryManagement  $factoryManagement
      * @return \Illuminate\Http\Response
      */
-    public function update(RequestsFactoryManagement $request, $id)
+    public function update(ManagementRequest $request, $id)
     {
         $data = FactoryManagement::find($id);
         $data->ca_id = $request->category;

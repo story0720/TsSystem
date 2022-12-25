@@ -37,7 +37,7 @@
                     <!-- form start -->
                     <form action="{{ Route('processing.store') }}" method="post">
                         @csrf
-                        <input type="hidden" id="standard" name="standard" >
+                        <input type="hidden" id="standard" name="standard">
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
@@ -51,10 +51,13 @@
                                     <div class="form-group mb-0">
                                         <label for="">加工規格與單價</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" data-type="specification" placeholder="請輸入加工規格...">
-                                            <input type="text" class="form-control" data-type="price" placeholder="請輸入單價...">
+                                            <input type="text" class="form-control" data-type="specification"
+                                                placeholder="請輸入加工規格...">
+                                            <input type="text" class="form-control" data-type="price"
+                                                placeholder="請輸入單價...">
                                             <span class="input-group-append">
-                                                <button type="button" control="add-specification" class="btn btn-info btn-flat rounded-right">
+                                                <button type="button" control="add-specification"
+                                                    class="btn btn-info btn-flat rounded-right">
                                                     <i class="fas fa-plus"></i>
                                                 </button>
                                             </span>
@@ -107,25 +110,27 @@
         <!-- /.content -->
     </div>
 @endsection
-<script>
-    function addstandard() {
-        let process_standard = $("#process_standard").val();
-        let data = process_standard.split(',');
-        console.log(data);
-        $('input[name="standard"]').val(data);
-        //standard=123456;
-    }
-    $(function(){
-        // 新增規格按鈕
-        $('button[control="add-specification"]').click(function(){
-            // 規格
-            let $specification = $('input[data-type="specification"]').val();
-            // console.log($specification);
-            // 價格
-            let $price = $('input[data-type="price"]').val();
-            // console.log($price);
-            // 被新增的項目結構
-            let $item = $(`<div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
+
+@section('script')
+    <script>
+        function addstandard() {
+            let process_standard = $("#process_standard").val();
+            let data = process_standard.split(',');
+            console.log(data);
+            $('input[name="standard"]').val(data);
+            //standard=123456;
+        }
+        $(function() {
+            // 新增規格按鈕
+            $('button[control="add-specification"]').click(function() {
+                // 規格
+                let $specification = $('input[data-type="specification"]').val();
+                // console.log($specification);
+                // 價格
+                let $price = $('input[data-type="price"]').val();
+                // console.log($price);
+                // 被新增的項目結構
+                let $item = $(`<div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
                 <button type="button" class="close text-white pl-2" data-dismiss="alert"
                     aria-hidden="true" style="opacity: 1;">&times;</button>
                 <div class="pl-2 pr-1 py-1" style="font-size: 1.05rem;">
@@ -135,23 +140,24 @@
                     </div>
                 </div>
             </div>`);
-            $("#processing-specification-list").append($item);
-        });
-        // 送出按鈕
-        $('button[type="submit"]').click(function(){
-            let $list = $("#processing-specification-list").find('.processing-specification-item');
-            let arrList = [];
-            $list.each(function(){
-                let $specification = $(this).find('.processing-specification').text();
-                let $price = $(this).find('.processing-price').text();
-                let $item = {
-                    'specification': $specification,
-                    'price': $price
-                };
-                arrList.push($item);
+                $("#processing-specification-list").append($item);
             });
-            console.log(arrList);
-            return false;
+            // 送出按鈕
+            $('button[type="submit"]').click(function() {
+                let $list = $("#processing-specification-list").find('.processing-specification-item');
+                let arrList = [];
+                $list.each(function() {
+                    let $specification = $(this).find('.processing-specification').text();
+                    let $price = $(this).find('.processing-price').text();
+                    let $item = {
+                        'specification': $specification,
+                        'price': $price
+                    };
+                    arrList.push($item);
+                });
+                console.log(arrList);
+                return false;
+            });
         });
-    });
-</script>
+    </script>
+@endsection
