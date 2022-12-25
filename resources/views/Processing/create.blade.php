@@ -65,26 +65,6 @@
                                         <!-- /input-group -->
                                     </div>
                                     <div class="mt-2" id="processing-specification-list">
-                                        <div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
-                                            <button type="button" class="close text-white pl-2" data-dismiss="alert"
-                                                aria-hidden="true" style="opacity: 1;">&times;</button>
-                                            <div class="pl-2 pr-1 py-1" style="font-size: 1.05rem;">
-                                                <span class="processing-specification">單面</span>
-                                                <div class="ml-1 badge badge-light" style="font-size: 1.05rem;">
-                                                    <span class="processing-price">$2,000</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
-                                            <button type="button" class="close text-white pl-2" data-dismiss="alert"
-                                                aria-hidden="true" style="opacity: 1;">&times;</button>
-                                            <div class="pl-2 pr-1 py-1" style="font-size: 1.05rem;">
-                                                <span class="processing-specification">雙面</span>
-                                                <div class="ml-1 badge badge-light" style="font-size: 1.05rem;">
-                                                    <span class="processing-price">$4,000</span>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -156,7 +136,6 @@
                     arrList.push($item);
                 });
                 console.log(arrList);
-                return false;
             });
         });
     </script>

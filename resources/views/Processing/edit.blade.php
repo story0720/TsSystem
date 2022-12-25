@@ -70,15 +70,6 @@
                                             </div>
                                         @endforeach
                                     </div>
-                                    <div class="alert alert-dismissible mb-0 pt-2 pb-0 pr-5 pl-0">
-                                        <button type="button" class="close pl-1 pb-1" data-dismiss="alert"
-                                            aria-hidden="true">&times;</button>
-                                        <div class="input-group">
-                                            <span class="pl-3 pr-2 py-1">2</span>
-                                            <input type="text" class="form-control form-control-sm" value="規格2"
-                                                disabled>
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                             <div class="row">
