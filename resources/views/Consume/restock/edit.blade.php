@@ -1,5 +1,5 @@
 @extends('Layout.index')
-@section('title','新增耗材進貨《鐵祥企業》')
+@section('title','編輯耗材進貨《鐵祥企業》')
 @section('content')
     <div class="content-wrapper">
         @if ($errors->any())
@@ -16,13 +16,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">新增耗材進貨</h1>
+                        <h1 class="m-0">編輯耗材進貨</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ Route('restock.index') }}">耗材進貨列表</a></li>
-                            <li class="breadcrumb-item active">新增耗材進貨</li>
+                            <li class="breadcrumb-item active">編輯耗材進貨</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -68,9 +68,6 @@
                                     <label for="">耗材廠商</label>
                                     <select class="form-control" name="caname" id="">
                                         <option value="">請選擇耗材廠商...</option>
-                                        @foreach ($category as $key)
-                                            <option value="{{ $key->ca_id }}">{{ $key->ca_Name }}</option>
-                                        @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">

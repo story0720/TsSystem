@@ -1,7 +1,6 @@
 @extends('Layout.index')
-@section('title', '廠商種類《鐵祥企業》')
+@section('title', '材料管理《鐵祥企業》')
 @section('content')
-    <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
         <div class="content-header">
@@ -12,7 +11,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item active">材料管理</li>
                         </ol>
                     </div><!-- /.col -->
@@ -20,13 +19,12 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
                 <div class="card">
-                    <div class="card-header">
-                        <a href="{{Route('material.create')}}" class="btn btn-success">新增材料</a>
+                    <div class="card-header text-left">
+                        <a href="{{ Route('material.create') }}" class="btn btn-success">新增材料</a>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
@@ -35,7 +33,12 @@
                                 <tr>
                                     <th class="text-center" style="width: 2rem;">#</th>
                                     <th>材料名稱</th>
-                                    <th>材料規格</th>
+                                    <th class="p-0">
+                                        <div class="row m-0 w-100">
+                                            <div class="col p-3">材料規格</div>
+                                            <div class="col p-3 border-left">單價</div>
+                                        </div>
+                                    </th>
                                     <th>備註</th>
                                     <th class="text-center" style="width: 10rem;">功能</th>
                                 </tr>
@@ -44,10 +47,11 @@
                                 <tr>
                                     <td>1.</td>
                                     <td>內容（材料名稱）</td>
-                                    <td>
-                                        <p>內容（材料規格）1</p>
-                                        <p>內容（材料規格）2</p>
-                                        <p>內容（材料規格）3</p>
+                                    <td class="p-0">
+                                        <div class="row m-0 w-100">
+                                            <div class="col p-3 border-bottom">內容（材料規格）</div>
+                                            <div class="col p-3 border-bottom border-left">內容（單價）</div>
+                                        </div>
                                     </td>
                                     <td>內容（備註）</td>
                                     <td class="text-center">

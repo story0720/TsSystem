@@ -1,5 +1,5 @@
 @extends('Layout.index')
-@section('title','耗材管理 《鐵祥企業》')
+@section('title','耗材列表《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">耗材管理</li>
+                        <li class="breadcrumb-item active">耗材列表</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -44,9 +44,9 @@
                             <tr>
                                 <td>{{$item->id}}</td>
                                 <td>{{$item->co_standardName}}</td>
-                                <td>
-                                    @foreach($item->Tags as  $key)
-                                        <span class="badge rounded-pill bg-success">{{$key->name}}</span>
+                                <td class="p-0">
+                                    @foreach($item->Tags as $key)
+                                    <div class="p-3 border-bottom">{{$key->name}}</div>
                                     @endforeach
                                 </td>
                                 <td>{{$item->co_memo}}</td>

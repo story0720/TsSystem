@@ -1,5 +1,5 @@
 @extends('Layout.index')
-@section('title', '編輯加工《鐵祥企業》')
+@section('title', '編輯材料《鐵祥企業》')
 @section('content')
     <div class="content-wrapper">
         @if ($errors->any())
@@ -16,13 +16,13 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">編輯加工</h1>
+                        <h1 class="m-0">編輯材料</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
                             <li class="breadcrumb-item"><a href="/">Home</a></li>
-                            <li class="breadcrumb-item"><a href="{{ Route('processing.index') }}">加工列表</a></li>
-                            <li class="breadcrumb-item active">編輯加工</li>
+                            <li class="breadcrumb-item"><a href="">材料管理</a></li>
+                            <li class="breadcrumb-item active">編輯材料</li>
                         </ol>
                     </div><!-- /.col -->
                 </div><!-- /.row -->
@@ -34,24 +34,22 @@
             <div class="container-fluid">
                 <div class="card">
                     <!-- form start -->
-                    <form action="{{ Route('processing.update', $edit['id']) }}" method="post">
-                        @method('Put')
-                        @csrf
+                    <form>
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="">加工方法</label>
-                                    <input type="text" class="form-control" name="categoryname" id=""
-                                        value="{{ $edit['pr_categoryname'] }}" placeholder="請輸入加工方法...">
+                                    <label for="">材料名稱</label>
+                                    <input type="text" class="form-control" name="" id=""
+                                        value="" aplaceholder="請輸入材料名稱...">
                                 </div>
                             </div>
                             <div class="row mb-3">
                                 <div class="col">
                                     <div class="form-group mb-0">
-                                        <label for="">加工規格與單價</label>
+                                        <label for="">材料規格與單價</label>
                                         <div class="input-group">
                                             <input type="text" class="form-control" data-type="specification" name=""
-                                                placeholder="請輸入加工規格...">
+                                                placeholder="請輸入材料規格...">
                                             <input type="text" class="form-control" data-type="price" name=""
                                                 placeholder="請輸入單價...">
                                             <span class="input-group-append">
@@ -62,32 +60,32 @@
                                         </div>
                                         <!-- /input-group -->
                                     </div>
-                                    <div class="mt-2" id="processing-specification-list">
-                                        @foreach (explode(',', $edit['pr_standard']) as $item)
-                                        <div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
+                                    <div class="mt-2" id="material-specification-list">
+                                        @
+                                        <div class="materaial-specification-item alert alert-info d-inline-flex mb-0 p-0">
                                                 <button type="button" class="close text-white pl-2" data-dismiss="alert"
                                                     aria-hidden="true" style="opacity: 1;">&times;</button>
                                                 <div class="pl-2 pr-1 py-1" style="font-size: 1.05rem;">
-                                                    <span class="processing-specification">{{ $item }}</span>
+                                                    <span class="materaial-specification">{ item }</span>
                                                     <div class="ml-1 badge badge-light" style="font-size: 1.05rem;">
-                                                        <span class="processing-price">{ price }</span>
+                                                        <span class="materaial-price">{ price }</span>
                                                     </div>
                                                 </div>
                                         </div>
-                                        @endforeach
+                                        @
                                     </div>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="client_memo">備註</label>
-                                    <textarea class="form-control" id="client_memo" name="memo" rows="5" placeholder="請輸入備註 ...">{{ $edit['pr_memo'] }}</textarea>
+                                    <label for="memo">備註</label>
+                                    <textarea class="form-control" id="memo" name="memo" rows="5" placeholder="請輸入備註 ..."></textarea>
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer text-center">
-                            <input type="hidden" name="processingEdit">
+                            <input type="hidden" name="materialEdit">
                             <button type="submit" class="btn btn-primary">送出</button>
                         </div>
                     </form>
@@ -99,6 +97,7 @@
         </div>
         <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
 @endsection
 @section('script')
 <script>
@@ -112,42 +111,42 @@
             let $price = $('input[data-type="price"]').val();
             // console.log($price);
             // 被新增的項目結構
-            let $item = $(`<div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
+            let $item = $(`<div class="material-specification-item alert alert-info d-inline-flex mb-0 p-0">
                 <button type="button" class="close text-white pl-2" data-dismiss="alert"
                     aria-hidden="true" style="opacity: 1;">&times;</button>
                 <div class="pl-2 pr-1 py-1" style="font-size: 1.05rem;">
-                    <span class="processing-specification">${$specification}</span>
+                    <span class="material-specification">${$specification}</span>
                     <div class="ml-1 badge badge-light" style="font-size: 1.05rem;">
-                        <span class="processing-price">$${$price}</span>
+                        <span class="material-price">$${$price}</span>
                     </div>
                 </div>
             </div>`);
-            $("#processing-specification-list").append($item);
+            $("#material-specification-list").append($item);
         });
         // 送出按鈕
         $('button[type="submit"]').click(function(){
-            let processingList = [];
+            let materialList = [];
 
             let $main = $('input[data-type="main"]').val();
-            processingList.push($main);
+            materialList.push($main);
 
-            let $list = $("#processing-specification-list").find('.processing-specification-item');
+            let $list = $("#material-specification-list").find('.material-specification-item');
             let arrList = [];
             $list.each(function(){
-                let $specification = $(this).find('.processing-specification').text();
-                let $price = $(this).find('.processing-price').text().replace("$","");
+                let $specification = $(this).find('.material-specification').text();
+                let $price = $(this).find('.material-price').text().replace("$","");
                 let $item = {
                     'specification': $specification,
                     'price': $price
                 };
                 arrList.push($item);
             });
-            processingList.push(arrList);
+            materialList.push(arrList);
 
             let $memo = $('textarea[data-type="memo"]').val();
-            processingList.push($memo);
+            materialList.push($memo);
 
-            $('input[name="processingEdit"]').attr("value",processingList);
+            $('input[name="materialEdit"]').attr("value",materialList);
         });
     });
 </script>
