@@ -21,6 +21,12 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('AdminLTE-3.2.0/css/adminlte.min.css') }}">
+
+    {{-- sweetalert CDN --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.css">
+
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -52,6 +58,10 @@
     <script src="{{ asset('AdminLTE-3.2.0/js/demo.js') }}"></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     {{-- <script src="{{asset('AdminLTE-3.2.0/js/pages/dashboard3.js')}}"></script> --}}
+
+    {{-- sweetalert CDN --}}
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"></script>
+
     @yield('script')
 </body>
 
