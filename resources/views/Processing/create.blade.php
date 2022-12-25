@@ -20,7 +20,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ Route('processing.index') }}">加工列表</a></li>
                             <li class="breadcrumb-item active">新增加工</li>
                         </ol>
@@ -29,7 +29,6 @@
             </div><!-- /.container-fluid -->
         </div>
         <!-- /.content-header -->
-
         <!-- Main content -->
         <div class="content">
             <div class="container-fluid">
@@ -37,13 +36,12 @@
                     <!-- form start -->
                     <form action="{{ Route('processing.store') }}" method="post">
                         @csrf
-                        <input type="hidden" id="standard" name="standard" >
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="">加工方法</label>
                                     <input type="text" class="form-control" name="categoryname" id=""
-                                        placeholder="請輸入加工種類...">
+                                        placeholder="請輸入加工方法...">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -51,8 +49,10 @@
                                     <div class="form-group mb-0">
                                         <label for="">加工規格與單價</label>
                                         <div class="input-group">
-                                            <input type="text" class="form-control" data-type="specification" placeholder="請輸入加工規格...">
-                                            <input type="text" class="form-control" data-type="price" placeholder="請輸入單價...">
+                                            <input type="text" class="form-control" data-type="specification"
+                                                placeholder="請輸入加工規格...">
+                                            <input type="text" class="form-control" data-type="price"
+                                                placeholder="請輸入單價...">
                                             <span class="input-group-append">
                                                 <button type="button" control="add-specification" class="btn btn-info btn-flat rounded-right">
                                                     <i class="fas fa-plus"></i>
@@ -62,26 +62,6 @@
                                         <!-- /input-group -->
                                     </div>
                                     <div class="mt-2" id="processing-specification-list">
-                                        <div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
-                                            <button type="button" class="close text-white pl-2" data-dismiss="alert"
-                                                aria-hidden="true" style="opacity: 1;">&times;</button>
-                                            <div class="pl-2 pr-1 py-1" style="font-size: 1.05rem;">
-                                                <span class="processing-specification">單面</span>
-                                                <div class="ml-1 badge badge-light" style="font-size: 1.05rem;">
-                                                    <span class="processing-price">$2,000</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
-                                            <button type="button" class="close text-white pl-2" data-dismiss="alert"
-                                                aria-hidden="true" style="opacity: 1;">&times;</button>
-                                            <div class="pl-2 pr-1 py-1" style="font-size: 1.05rem;">
-                                                <span class="processing-specification">雙面</span>
-                                                <div class="ml-1 badge badge-light" style="font-size: 1.05rem;">
-                                                    <span class="processing-price">$4,000</span>
-                                                </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -93,8 +73,8 @@
                             </div>
                         </div>
                         <!-- /.card-body -->
-
                         <div class="card-footer text-center">
+                            <input type="hidden" name="processingCreate">
                             <button type="submit" class="btn btn-primary">送出</button>
                         </div>
                     </form>
@@ -107,14 +87,8 @@
         <!-- /.content -->
     </div>
 @endsection
+@section('script')
 <script>
-    function addstandard() {
-        let process_standard = $("#process_standard").val();
-        let data = process_standard.split(',');
-        console.log(data);
-        $('input[name="standard"]').val(data);
-        //standard=123456;
-    }
     $(function(){
         // 新增規格按鈕
         $('button[control="add-specification"]').click(function(){
@@ -139,19 +113,29 @@
         });
         // 送出按鈕
         $('button[type="submit"]').click(function(){
+            let processingList = [];
+
+            let $main = $('input[data-type="main"]').val();
+            processingList.push($main);
+
             let $list = $("#processing-specification-list").find('.processing-specification-item');
             let arrList = [];
             $list.each(function(){
                 let $specification = $(this).find('.processing-specification').text();
-                let $price = $(this).find('.processing-price').text();
+                let $price = $(this).find('.processing-price').text().replace("$","");
                 let $item = {
                     'specification': $specification,
                     'price': $price
                 };
                 arrList.push($item);
             });
-            console.log(arrList);
-            return false;
+            processingList.push(arrList);
+
+            let $memo = $('textarea[data-type="memo"]').val();
+            processingList.push($memo);
+
+            $('input[name="processingCreate"]').attr("value",processingList);
         });
     });
 </script>
+@endsection

@@ -11,7 +11,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item active">加工列表</li>
                         </ol>
                     </div><!-- /.col -->
@@ -31,9 +31,14 @@
                         <table class="table table-bordered">
                             <thead>
                                 <tr>
-                                    <th>#</th>
+                                    <th class="text-center" style="width: 2rem;">#</th>
                                     <th>加工方法</th>
-                                    <th>加工規格</th>
+                                    <th class="p-0">
+                                        <div class="row m-0 w-100">
+                                            <div class="col p-3">加工規格</div>
+                                            <div class="col p-3 border-left">單價</div>
+                                        </div>
+                                    </th>
                                     <th>備註</th>
                                     <th class="text-center" style="width: 10rem;">功能</th>
                                 </tr>
@@ -41,11 +46,14 @@
                             <tbody>
                                 @foreach ($data as $item)
                                     <tr>
-                                        <td>{{ $item->id }}</td>
+                                        <td class="text-center">{{ $item->id }}</td>
                                         <td>{{ $item->pr_categoryname }}</td>
-                                        <td>
+                                        <td class="p-0">
                                             @foreach (explode(',', $item->pr_standard) as $data)
-                                                <span class="badge badge-pill badge-info">{{ $data }}</span>                                               
+                                            <div class="row m-0 w-100">
+                                                <div class="col p-3 border-bottom">{{ $data }}</div>
+                                                <div class="col p-3 border-bottom border-left">{ $2,000 }</div>
+                                            </div>
                                             @endforeach
                                         </td>
                                         <td>{{ $item->pr_memo }}</td>
