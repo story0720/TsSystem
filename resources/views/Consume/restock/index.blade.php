@@ -1,5 +1,5 @@
 @extends('Layout.index')
-@section('title','耗材進貨列表 《鐵祥企業》')
+@section('title','耗材進貨列表《鐵祥企業》')
 @section('content')
 <div class="content-wrapper">
     <!-- Content Header (Page header) -->
@@ -12,7 +12,7 @@
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
                         <li class="breadcrumb-item"><a href="/">Home</a></li>
-                        <li class="breadcrumb-item active">進貨列表</li>
+                        <li class="breadcrumb-item active">耗材進貨列表</li>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -25,7 +25,7 @@
         <div class="container-fluid">
             <div class="card">
                 <div class="card-header">
-                    <a href="{{Route('restock.create')}}" class="btn btn-success">耗材進貨</a>
+                    <a href="{{Route('restock.create')}}" class="btn btn-success">新增耗材進貨</a>
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
