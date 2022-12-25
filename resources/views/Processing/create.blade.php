@@ -51,13 +51,8 @@
                                     <div class="form-group mb-0">
                                         <label for="">加工規格與單價</label>
                                         <div class="input-group">
-<<<<<<< HEAD
-                                            <input type="text" id="process_standard" class="form-control"
-                                                placeholder="請輸入加工規格...">
-=======
                                             <input type="text" class="form-control" data-type="specification" placeholder="請輸入加工規格...">
                                             <input type="text" class="form-control" data-type="price" placeholder="請輸入單價...">
->>>>>>> 029d6ef07c31517ac07c59076dc943f11cf0d1f6
                                             <span class="input-group-append">
                                                 <button type="button" control="add-specification" class="btn btn-info btn-flat rounded-right">
                                                     <i class="fas fa-plus"></i>
@@ -66,16 +61,6 @@
                                         </div>
                                         <!-- /input-group -->
                                     </div>
-<<<<<<< HEAD
-                                    <div class="alert alert-dismissible mb-0 pt-2 pb-0 pr-5 pl-0" id="addstandard">
-                                        <button type="button" class="close pl-1 pb-1" data-dismiss="alert"
-                                            aria-hidden="true">&times;</button>
-
-                                        <div class="input-group">
-                                            <span class="pl-3 pr-2 py-1">1</span>
-                                            <input type="text" class="form-control form-control-sm" value="規格1"
-                                                disabled>
-=======
                                     <div class="mt-2" id="processing-specification-list">
                                         <div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
                                             <button type="button" class="close text-white pl-2" data-dismiss="alert"
@@ -86,7 +71,6 @@
                                                     <span class="processing-price">$2,000</span>
                                                 </div>
                                             </div>
->>>>>>> 029d6ef07c31517ac07c59076dc943f11cf0d1f6
                                         </div>
                                         <div class="processing-specification-item alert alert-info d-inline-flex mb-0 p-0">
                                             <button type="button" class="close text-white pl-2" data-dismiss="alert"
