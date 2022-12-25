@@ -138,6 +138,12 @@
                                                     </i>
                                                     刪除
                                                 </button>
+                                                <button type="button" onclick="test()" flag="{{ $item->mn_id }}"
+                                                    class="btn btn-danger btn-sm">
+                                                    <i class="fas fa-trash">
+                                                    </i>
+                                                    測試
+                                                </button>
                                             </form>
                                         </td>
                                     </tr>
@@ -163,3 +169,39 @@
         <!-- /.content -->
     </div>
 @endsection
+
+<script>
+    function test() {
+        let id = $(this).attr("flag");
+        // console.log(id);
+        var token = $(this).attr("token");
+        $.ajax({
+            type: 'POST',
+            headers: {
+                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+            },
+            url: "{{ Route('management.delete', $item->mn_id) }}",
+            data: {
+                "id": 7,
+                "_method": 'DELETE',
+                "_token": "{{ csrf_token() }}"
+            },
+            dataType: 'JSON',
+            success: function(result) {
+                console.log(result);
+            },
+            error: function(xhr) {
+                // console.log(xhr.responseText); // this line will save you tons of hours while debugging
+                // console.log(xhr.error); // this line will save you tons of hours while debugging
+
+                // do something here because of error
+            }
+        });
+        Swal.fire({
+            title: '錯誤!',
+            text: '此項目可能有與其他資料關聯導致無法刪除',
+            icon: 'error',
+            confirmButtonText: 'Cool'
+        });
+    }
+</script>

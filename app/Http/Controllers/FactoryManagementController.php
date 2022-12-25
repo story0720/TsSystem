@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Factory\ManagementRequest;
+use App\Models\Consume;
 use App\Models\FactoryCategory;
 use App\Models\FactoryManagement;
 use Illuminate\Http\Request;
@@ -106,12 +107,14 @@ class FactoryManagementController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
+    {        
+        dd($id);
         try {
             FactoryManagement::find($id)->delete();
-            return redirect()->action([FactoryManagementController::class, 'index']);
+            //return redirect()->action([FactoryManagementController::class, 'index']);
+            return response()->json_encode(['title'=>"刪除成功",'icon'=>'success']);
         } catch (Exception $e) {
-            return "刪除失敗";
+            return response()->json_encode(['title'=>"刪除失敗",'icon'=>'errors']);
             //return $e->getMessage();
         }
     }
