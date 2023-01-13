@@ -39,13 +39,12 @@ class ConsumeController extends Controller
      */
     public function store(Consumable $request)
     {
-        dd($request->al());
+        dd($request->all());
         try{
             $data = new Consume();
             $data->co_standardName = $request->standardname;
-            //$data->co_standard = $request->standard;
             $data->co_memo = $request->memo;
-            $tags = explode(',', $request->tag);
+            $tags = explode(',', $request->specification);
             $data->save();
             foreach ($tags as $item => $key) {
                 $model = Tag::firstorCreate(['name' => $key]);

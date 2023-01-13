@@ -73,7 +73,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer text-center">
-                            <input type="hidden" name="consumablesCreate">
+                            <input type="hidden" name="specification">
                             <button type="submit" class="btn btn-primary">送出</button>
                         </div>
                     </form>
@@ -121,7 +121,7 @@
             let $memo = $('textarea[data-type="memo"]').val();
             consumablesList.push($memo);
 
-            $('input[name="consumablesCreate"]').attr("value",consumablesList);
+            $('input[name="specification"]').attr("value",consumablesList);
         });
     });
 </script>

@@ -16,9 +16,9 @@ return new class extends Migration
     {
         Schema::create('consumes', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('co_standardName');
-            //$table->string('co_standard');
-            $table->string('co_memo')->nullable();
+            $table->string('co_standardName');          //耗材名稱
+            $table->string('co_standard');              //耗材規格
+            $table->string('co_memo')->nullable();      //備註
             $table->timestamps();
         });
     }

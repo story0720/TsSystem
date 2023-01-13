@@ -9,5 +9,5 @@ class Processing extends Model
 {
     use HasFactory;
     protected $table = 'processings';
-    protected $fillable = ['pr_categoryname','pr_standard','pr_memo'];
+    protected $fillable = ['pr_categoryname','pr_standard','pr_memo','pr_price'];
 }
