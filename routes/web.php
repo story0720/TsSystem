@@ -3,20 +3,21 @@
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
 
-/*
-Route::get('/', function () {
-    return view('welcome');
-});*/
 
 
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::middleware(['auth'])->group(function (){
 //廠商清單管理
 Route::get("/", [App\Http\Controllers\FactoryManagementController::class, 'index'])->name('management.index');
+
 Route::get("/create", [App\Http\Controllers\FactoryManagementController::class, 'create'])->name('management.create');
 Route::post("/", [App\Http\Controllers\FactoryManagementController::class, 'store'])->name('management.store');
 Route::get("/{id}/edit", [App\Http\Controllers\FactoryManagementController::class, 'edit'])->name('management.edit');
 Route::put("/{id}", [App\Http\Controllers\FactoryManagementController::class, 'update'])->name('management.update');
 Route::delete("/{id}/delete", [App\Http\Controllers\FactoryManagementController::class, 'destroy'])->name('management.delete');
-
 
 
 //廠商種類管理
@@ -72,3 +73,5 @@ Route::resource("/order",App\Http\Controllers\OrderController::class);
 Route::get('material/inventory',[App\Http\Controllers\MaterialController::class,'inventory'])->name('material.inventory');
 //材料管理
 Route::resource('/material',App\Http\Controllers\MaterialController::class);
+});
+
