@@ -20,8 +20,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="consumables.html">耗材管理</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="{{Route('usage.index')}}">耗材使用紀錄</a></li>
                             <li class="breadcrumb-item active">耗材使用</li>
                         </ol>
                     </div><!-- /.col -->

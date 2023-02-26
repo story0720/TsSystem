@@ -12,8 +12,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="order.html">訂單管理</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{Route('order.index')}}">訂單管理</a></li>
                             <li class="breadcrumb-item active">新增訂單</li>
                         </ol>
                     </div><!-- /.col -->
@@ -37,7 +37,7 @@
                                     <select class="form-control" name="TradeName" id="client_name">
                                         <option>請選擇廠商名稱...</option>
                                         @foreach ($factoryManagement as $item)
-                                                <option value="{{ $item->mn_id }}" {{$order->mn_id == $item->mn_id?"checked":""}}>{{ $item->mn_Name }}</option>                                            
+                                                <option value="{{ $item->mn_id }}" {{$order->mn_id == $item->mn_id?"checked":""}}>{{ $item->mn_Name }}</option>
                                         @endforeach
                                     </select>
                                 </div>

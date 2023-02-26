@@ -21,7 +21,7 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
                             <li class="breadcrumb-item"><a href="{{ Route('management.index') }}">廠商列表</a></li>
                             <li class="breadcrumb-item active">新增廠商</li>
                         </ol>
@@ -51,7 +51,7 @@
                                 </div>
                                 <div class="form-group col">
                                     <label for="client_name">廠商名稱</label>
-                                    <input type="text" class="form-control" name="name" 
+                                    <input type="text" class="form-control" name="name"
                                         id="client_name" placeholder="請輸入廠商名稱">
                                 </div>
                             </div>

@@ -12,8 +12,8 @@
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
-                            <li class="breadcrumb-item"><a href="#">Home</a></li>
-                            <li class="breadcrumb-item"><a href="order.html">訂單管理</a></li>
+                            <li class="breadcrumb-item"><a href="/">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{Route('order.create')}}">訂單管理</a></li>
                             <li class="breadcrumb-item active">新增訂單</li>
                         </ol>
                     </div><!-- /.col -->
@@ -112,7 +112,7 @@
                                             </span>
                                         </div>
                                         <input type="number" name="Count" class="form-control text-danger"
-                                            id="Count" min="0" 
+                                            id="Count" min="0"
                                             placeholder="系統自動計算（公式：單價 × 應交數量）">
                                     </div>
                                 </div>
