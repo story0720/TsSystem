@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table class="table table-bordered text-center table-valign-middle">
+                        <table class="table table-bordered text-center table-valign-middle" id="listtable">
                             <thead>
                                 <tr>
                                     <th class="bg-info disabled">#</th>
@@ -104,4 +104,7 @@
         </div>
         <!-- /.content -->
     </div>
+@endsection
+@section('script')    
+    <script src="{{ asset('js/Order/index.js') }}"></script>
 @endsection

@@ -39,7 +39,7 @@ class ProcessingController extends Controller
      */
     public function store(RequestsProcessing $request)
     {
-        dd($request->all());
+        //dd($request->all());
         $data = new Processing();
         $data->pr_categoryname = $request->categoryname;
         $data->pr_standard = $request->standard;
