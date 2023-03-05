@@ -27,6 +27,10 @@
 
     <meta name="csrf-token" content="{{ csrf_token() }}" />
 
+    {{-- datatables CDN --}}
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.2/css/jquery.dataTables.min.css">
+
+  
 </head>
 
 <body class="hold-transition sidebar-mini">
@@ -62,6 +66,9 @@
     {{-- sweetalert CDN --}}
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.6.16/dist/sweetalert2.all.min.js"></script>
 
+     {{-- datatables CDN --}}
+   
+     <script src="https://cdn.datatables.net/1.13.2/js/jquery.dataTables.min.js"></script>
     @yield('script')
 </body>
 

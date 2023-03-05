@@ -151,6 +151,30 @@
                 $('div[data-type="specificationFake"]').removeClass('d-none');
                 $('select[data-type="specificationTrue"]').addClass('d-none');
             }
+
+
+            let coname = $(select[name="coname"]).val();
+            
+            $.ajax({
+                type: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                },
+                url: "{{ Route('management.delete', $item-> mn_id) }}",
+                data: {
+                    "name": coname,
+                    "_method": 'DELETE',
+                    "_token": "{{ csrf_token() }}"
+                },
+                dataType: 'JSON',
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (xhr) {
+                    console.log(xhr);
+                }
+            });
+
         });
     });
 </script>

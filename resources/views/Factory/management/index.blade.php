@@ -37,7 +37,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table class="table table-bordered">
+                        <table class="table table-bordered" id="listtable">
                             <thead>
                                 <tr>
                                     <th>#</th>
@@ -151,16 +151,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->
-                    <div class="card-footer clearfix">
-                        <ul class="pagination pagination-sm m-0 float-right">
-                            <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                            <li class="page-item"><a class="page-link" href="#">2</a></li>
-                            <li class="page-item"><a class="page-link" href="#">3</a></li>
-                            <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                        </ul>
-                    </div>
+                    <!-- /.card-body -->                   
                 </div>
                 <!-- /.card -->
             </div>
@@ -170,38 +161,6 @@
     </div>
 @endsection
 
-<script>
-    function test() {
-        let id = $(this).attr("flag");
-        // console.log(id);
-        var token = $(this).attr("token");
-        $.ajax({
-            type: 'POST',
-            headers: {
-                'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-            },
-            url: "{{ Route('management.delete', $item->mn_id) }}",
-            data: {
-                "id": 7,
-                "_method": 'DELETE',
-                "_token": "{{ csrf_token() }}"
-            },
-            dataType: 'JSON',
-            success: function(result) {
-                console.log(result);
-            },
-            error: function(xhr) {
-                // console.log(xhr.responseText); // this line will save you tons of hours while debugging
-                // console.log(xhr.error); // this line will save you tons of hours while debugging
-
-                // do something here because of error
-            }
-        });
-        Swal.fire({
-            title: '錯誤!',
-            text: '此項目可能有與其他資料關聯導致無法刪除',
-            icon: 'error',
-            confirmButtonText: 'Cool'
-        });
-    }
-</script>
+@section('script')
+    <script src="{{ asset('js/Factory/management/index.js') }}"></script>
+@endsection

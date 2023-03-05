@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Route;
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::resource("/test",App\Http\Controllers\PermissionController::class);
+
 
 Route::middleware(['auth'])->group(function (){
 //廠商清單管理

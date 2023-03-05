@@ -108,7 +108,6 @@ class FactoryManagementController extends Controller
      */
     public function destroy($id)
     {        
-        dd($id);
         try {
             FactoryManagement::find($id)->delete();
             //return redirect()->action([FactoryManagementController::class, 'index']);

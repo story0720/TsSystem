@@ -18,6 +18,7 @@ class ProcessingController extends Controller
     public function index()
     {
         $data=Processing::orderby('id', 'desc')->get();
+        dd($data);
         return view('Processing.index',['data'=>$data]);
     }
 
