@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="client_category">種類名稱</label>
+                                    <label for="client_category"><span class="text-danger">*</span>種類名稱</label>
                                     <input type="text" class="form-control" name="Name" value="{{ $edit['ca_Name'] }}"
                                         id="client_category" placeholder="請輸入廠商種類">
                                 </div>

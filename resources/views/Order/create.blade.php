@@ -32,7 +32,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label>廠商名稱</label>
+                                    <label><span class="text-danger">*</span>廠商名稱</label>
                                     <select class="form-control" name="TradeName" id="client_name">
                                         <option>請選擇廠商名稱...</option>
                                         @foreach ($factoryManagement as $item)
@@ -41,12 +41,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">加工編號</label>
+                                    <label for=""><span class="text-danger">*</span>加工編號</label>
                                     <input type="text" name="SerialNumber" class="form-control" id=""
                                         placeholder="請輸入加工編號...">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">加工種類</label>
+                                    <label for=""><span class="text-danger">*</span>加工種類</label>
                                     <select class="form-control" name="CategoryName" id="">
                                         <option value="">請輸入加工種類...</option>
                                         @foreach ($processing as $item)
@@ -55,7 +55,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">加工規格</label>
+                                    <label for=""><span class="text-danger">*</span>加工規格</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control border-right-0" id=""
                                             placeholder="請先選擇加工規格" disabled>
@@ -66,33 +66,33 @@
                                         </div>
                                     </div>
                                     <select class="form-control d-none" name="" id="">
-                                        <option value="">請選擇加工規格</option>
+                                        <option value=""><span class="text-danger">*</span>請選擇加工規格</option>
                                         <option value="">加工規格1</option>
                                         <option value="">加工規格2</option>
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">發料日期</label>
+                                    <label for=""><span class="text-danger">*</span>發料日期</label>
                                     <input type="date" value="{{date('Y-m-d')}}" name="Materialdate" class="form-control"
                                         placeholder="請輸入發料日期..." />
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">發料數量</label>
+                                    <label for=""><span class="text-danger">*</span>發料數量</label>
                                     <input type="number" class="form-control" id="" min="0" value="0"
                                         placeholder="請輸入發料數量...">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">出貨日期</label>
+                                    <label for=""><span class="text-danger">*</span>出貨日期</label>
                                     <input type="date" value="{{date('Y-m-d')}}" name="Shipdate" class="form-control"
                                         placeholder="請輸入出貨日期..." />
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">應交數量</label>
+                                    <label for=""><span class="text-danger">*</span>應交數量</label>
                                     <input type="number" name="Estimatedquantity" class="form-control" id="Estimatedquantity"
                                         min="0" value="0" placeholder="請輸入應交數量..." oninput="count()">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">金額(成品單價)</label>
+                                    <label for=""><span class="text-danger">*</span>金額(成品單價)</label>
                                     <div class="input-group">
                                         <div class="input-group-prepend">
                                             <span class="input-group-text">

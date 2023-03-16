@@ -29,7 +29,7 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="card-body">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="listtable">
                         <thead>
                             <tr>
                                 <th class="text-center" style="width: 2rem;">#</th>
@@ -71,16 +71,6 @@
                         </tbody>
                     </table>
                 </div>
-                <!-- /.card-body -->
-                <div class="card-footer clearfix">
-                    <ul class="pagination pagination-sm m-0 float-right">
-                        <li class="page-item"><a class="page-link" href="#">&laquo;</a></li>
-                        <li class="page-item"><a class="page-link" href="#">1</a></li>
-                        <li class="page-item"><a class="page-link" href="#">2</a></li>
-                        <li class="page-item"><a class="page-link" href="#">3</a></li>
-                        <li class="page-item"><a class="page-link" href="#">&raquo;</a></li>
-                    </ul>
-                </div>
             </div>
             <!-- /.card -->
         </div>
@@ -88,4 +78,8 @@
     </div>
     <!-- /.content -->
 </div>
+@endsection
+
+@section('script')    
+    <script src="{{ asset('js/Consume/consumables/index.js') }}"></script>
 @endsection

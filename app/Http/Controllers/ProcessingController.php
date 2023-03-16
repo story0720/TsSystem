@@ -17,9 +17,8 @@ class ProcessingController extends Controller
      */
     public function index()
     {
-        $data=Processing::orderby('id', 'desc')->get();
-        dd($data);
-        return view('Processing.index',['data'=>$data]);
+        $data = Processing::orderby('id', 'desc')->get();
+        return view('Processing.index', ['data' => $data]);
     }
 
     /**
@@ -40,11 +39,12 @@ class ProcessingController extends Controller
      */
     public function store(RequestsProcessing $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         $data = new Processing();
         $data->pr_categoryname = $request->categoryname;
         $data->pr_standard = $request->standard;
         $data->pr_memo = $request->memo;
+        // $data->pr_price
         $data->save();
         return redirect()->action([ProcessingController::class, 'index']);
     }
@@ -68,8 +68,8 @@ class ProcessingController extends Controller
      */
     public function edit($id)
     {
-        $edit=Processing::find($id);
-        return view('Processing.edit',['edit'=>$edit]);
+        $edit = Processing::find($id);
+        return view('Processing.edit', ['edit' => $edit]);
     }
 
     /**
@@ -81,9 +81,9 @@ class ProcessingController extends Controller
      */
     public function update(RequestsProcessing $request, $id)
     {
-        $data=Processing::find($id);
-        $data->pr_categoryname= $request->categoryname;
-        $data->pr_standard =$request->standard;
+        $data = Processing::find($id);
+        $data->pr_categoryname = $request->categoryname;
+        $data->pr_standard = $request->standard;
         $data->pr_memo = $request->memo;
         $data->save();
         return redirect()->action([ProcessingController::class, 'index']);
@@ -100,7 +100,7 @@ class ProcessingController extends Controller
         try {
             Processing::find($id)->delete();
             return redirect()->action([ProcessingController::class, 'index']);
-        }catch (Exception $e) {
+        } catch (Exception $e) {
             //return "刪除失敗";
             return $e->getMessage();
         }

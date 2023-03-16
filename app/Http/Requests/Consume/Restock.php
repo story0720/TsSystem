@@ -30,6 +30,7 @@ class Restock extends FormRequest
             'quantity' => 'required|integer|min:0',
             'unitprice' => 'required|integer|min:0',
             'count' => 'required|integer|min:0',
+            'specification' => 'required|integer',
             'memo' => 'nullable',
         ];
     }
@@ -45,6 +46,8 @@ class Restock extends FormRequest
             'unitprice.min' => '進貨數量最小值為0',
             'count.required' => '小計金額不正確',
             'count.min' => '小計金額最小值為0',
+            'specification.required' => '請選擇耗材規格',
+            'specification.integer' => '請選擇耗材規格',
         ];
     }
 }

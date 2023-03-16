@@ -40,12 +40,12 @@ class ManagementRequest extends FormRequest
             'category.integer' => '請選擇廠商種類',
             'category.exists' => '廠商種類不存在',
             'name.required' => "請輸入廠商名稱",
-            'contact' => 'required|string',
             'tel1.required' => '請輸入連絡電話',
             'tel1.max' => '長度最多20個字',
             'address.required' => '請輸入地址',
             'address.string' => '長度最多50個字',
             'tel1.string' => '請輸入連絡電話',
+            'contact.max' => '聯絡人長度不能大於十個字',
             'contact.required' => '請輸入聯絡人名稱',
         ];
     }

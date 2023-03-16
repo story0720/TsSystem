@@ -18,6 +18,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedInteger('factorycategory_id');      //廠商種類ID
             $table->unsignedInteger('consume_id');              //耗材名稱ID
+            $table->unsignedInteger('specification');           //耗材規格
             $table->date('re_date');                            //進貨日期
             $table->integer('re_quantity');                     //進貨數量
             $table->integer('re_unitprice');                    //進貨單價

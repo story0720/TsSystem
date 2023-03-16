@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
-                                    <label>廠商種類</label>
+                                    <label><span class="text-danger">*</span>廠商種類</label>
                                     <select class="form-control" id="client_category" name="category">
                                         <option>請選擇種類</option>
                                         @foreach ($category as $item)
@@ -53,19 +53,19 @@
                                     </select>
                                 </div>
                                 <div class="form-group col">
-                                    <label for="client_name">廠商名稱</label>
+                                    <label for="client_name"><span class="text-danger">*</span>廠商名稱</label>
                                     <input type="text" class="form-control" name="name" value="{{ $edit['mn_Name'] }}"
                                         id="client_name" placeholder="請輸入廠商名稱">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="client_contact_person">聯絡人</label>
+                                    <label for="client_contact_person"><span class="text-danger">*</span>聯絡人</label>
                                     <input type="text" class="form-control" name="contact"
                                         value="{{ $edit['mn_Contact'] }}" id="client_contact_person" placeholder="請輸入聯絡人">
                                 </div>
                                 <div class="form-group col">
-                                    <label for="client_primary_phone">主要電話</label>
+                                    <label for="client_primary_phone"><span class="text-danger">*</span>主要電話</label>
                                     <input type="text" class="form-control" name="tel1" value="{{ $edit['mn_Tel1'] }}"
                                         id="client_primary_phone" placeholder="請輸入主要電話">
                                 </div>
@@ -73,18 +73,18 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="client_secondary_phone">次要電話</label>
-                                    <input type="text" class="form-control" name="Tel2"
+                                    <input type="text" class="form-control" name="tel2"
                                         value="{{ $edit['mn_Tel2'] }}" id="client_secondary_phone" placeholder="請輸入次要電話">
                                 </div>
                                 <div class="form-group col">
                                     <label for="client_fax">傳真</label>
-                                    <input type="text" class="form-control" name="Fax" value="{{ $edit['mn_Fax'] }}"
+                                    <input type="text" class="form-control" name="fax" value="{{ $edit['mn_Fax'] }}"
                                         id="client_fax" placeholder="請輸入傳真">
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="client_address">地址</label>
+                                    <label for="client_address"><span class="text-danger">*</span>地址</label>
                                     <input type="text" class="form-control" name="address"
                                         value="{{ $edit['mn_Address'] }}" id="client_address" placeholder="請輸入地址">
                                 </div>

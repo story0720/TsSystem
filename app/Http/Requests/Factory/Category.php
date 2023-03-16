@@ -24,15 +24,15 @@ class Category extends FormRequest
     public function rules()
     {
         return [
-            "name"=>'required|string|max:10',
-            'memo'=>'string|Nullable',
+            "Name"=>'required|string|max:10',
+            'Memo'=>'string|Nullable',
         ];
     }
     public function messages()
     {
         return [
-            'name.required'=>'請輸入種類名稱',
-            'name.max'=>'長度最大為10個字',
+            'Name.required'=>'請輸入種類名稱',
+            'Name.max'=>'種類名稱長度最大為10個字',
         ];
     }
 }

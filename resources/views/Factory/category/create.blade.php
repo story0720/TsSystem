@@ -40,13 +40,13 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="client_category">種類名稱</label>
-                                    <input type="text" class="form-control" name="name" id="client_category"
+                                    <label for="client_category"><span class="text-danger">*</span>種類名稱</label>
+                                    <input type="text" class="form-control" name="Name" id="client_category"
                                         placeholder="請輸入廠商種類名稱">
                                 </div>
                                 <div class="form-group col">
                                     <label for="client_category_memo">備註</label>
-                                    <textarea class="form-control" name="memo" id="client_category_memo" rows="5" placeholder="請輸入備註 ..."></textarea>
+                                    <textarea class="form-control" name="Memo" id="client_category_memo" rows="5" placeholder="請輸入備註 ..."></textarea>
                                 </div>
                             </div>
                         </div>

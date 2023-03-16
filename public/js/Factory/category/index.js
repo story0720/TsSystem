@@ -1,6 +1,6 @@
 $('#listtable').DataTable({
     order: [
-      [0, 'asc']
+      [0, 'desc']
     ], // 將第一列按照升序排序
     language: {
       url: "//cdn.datatables.net/plug-ins/1.13.2/i18n/zh-HANT.json"

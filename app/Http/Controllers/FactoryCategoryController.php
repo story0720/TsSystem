@@ -18,7 +18,7 @@ class FactoryCategoryController extends Controller
      */
     public function index()
     {
-        $data=FactoryCategory::orderBy('ca_id')->get();
+        $data=FactoryCategory::orderBy('ca_id','asc')->get();
         return view("Factory.category.index",['category'=>$data]);
     }
 
@@ -41,8 +41,8 @@ class FactoryCategoryController extends Controller
     public function store(Category $request)
     {
         $data=new FactoryCategory();
-        $data->ca_Name=$request->name;
-        $data->ca_Memo=$request->memo;
+        $data->ca_Name=$request->Name;
+        $data->ca_Memo=$request->Memo;
         $data->save();
         return redirect()->action([FactoryCategoryController::class, 'index']);
     }
@@ -80,8 +80,8 @@ class FactoryCategoryController extends Controller
     public function update(Category $request,$id)
     {
         $data=FactoryCategory::find($id);
-        $data->ca_Name=$request->name;
-        $data->ca_Memo=$request->memo;
+        $data->ca_Name=$request->Name;
+        $data->ca_Memo=$request->Memo;
         $data->save();
         return redirect()->action([FactoryCategoryController::class, 'index']);
     }

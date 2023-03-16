@@ -51,6 +51,9 @@ Route::put("/consume/{id}", [App\Http\Controllers\ConsumeController::class, 'upd
 Route::delete("/consume/{id}/delete", [App\Http\Controllers\ConsumeController::class, 'destroy'])->name('consume.delete');
 
 //耗材進貨管理
+
+
+Route::post("/restock/Gettag", [App\Http\Controllers\RestockController::class, 'Gettag'])->name('restock.Gettag');
 Route::get("/restock", [App\Http\Controllers\RestockController::class, 'index'])->name('restock.index');
 Route::get("/restock/create", [App\Http\Controllers\RestockController::class, 'create'])->name('restock.create');
 Route::post("/restock", [App\Http\Controllers\RestockController::class, 'store'])->name('restock.store');

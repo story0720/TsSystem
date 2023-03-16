@@ -28,7 +28,7 @@ class RestockController extends Controller
      */
     public function create()
     {
-        $consume = Consume::all();
+        $consume = Consume::all();               //耗材名稱
         $category = FactoryCategory::all();      //耗材廠商代號(1或2)
         return view('Consume.restock.create', ['consume' => $consume, 'category' => $category]);
     }
@@ -41,9 +41,11 @@ class RestockController extends Controller
      */
     public function store(ConsumeRestock $request)
     {
+        // dd($request->all());
         Restock::FirstOrCreate([
             'factorycategory_id' => $request->caname,              //廠商種類
             'consume_id' => $request->coname,                      //耗材名稱
+            'specification' => $request->specification,            //耗材規格
             're_date' => $request->date,                           //進貨日期
             're_quantity' => $request->quantity,                   //進貨數量
             're_unitprice' => $request->unitprice,                 //進貨單價
@@ -72,7 +74,11 @@ class RestockController extends Controller
      */
     public function edit($id)
     {
-        //
+        $consume = Consume::all();               //耗材名稱
+        $category = FactoryCategory::all();      //耗材廠商代號(1或2)
+        $edit = Restock::find($id);
+        // dd($edit);
+        return view('Consume.restock.edit', ['edit' => $edit, 'consume' => $consume, 'category' => $category]);
     }
 
     /**
@@ -96,5 +102,11 @@ class RestockController extends Controller
     public function destroy($id)
     {
         //
+    }
+    //查詢廠商的耗材規格
+    public function Gettag(Request $request)
+    {
+        $data = Consume::find($request->id)->Tags;
+        return response()->json($data);
     }
 }

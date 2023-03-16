@@ -40,7 +40,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="">耗材名稱</label>
+                                    <label for=""><span class="text-danger">*</span>耗材名稱</label>
                                     <input type="text" class="form-control" data-type="name"
                                         name="standardname" placeholder="請輸入耗材名稱...">
                                 </div>
@@ -48,10 +48,10 @@
                             <div class="row mb-3">
                                 <div class="col">
                                     <div class="form-group mb-0">
-                                        <label for="">耗材規格</label>
+                                        <label for=""><span class="text-danger">*</span>耗材規格</label>
                                         <div class="input-group">
                                             <input type="text" class="form-control" data-type="specification"
-                                                name="specification" placeholder="請輸入耗材規格...">
+                                                name="" placeholder="請輸入耗材規格...">
                                             <span class="input-group-append">
                                                 <button type="button" control="add-specification" class="btn btn-info btn-flat rounded-right">
                                                     <i class="fas fa-plus"></i>
@@ -105,10 +105,10 @@
         });
         // 送出按鈕
         $('button[type="submit"]').click(function(){
-            let consumablesList = [];
+            // let consumablesList = [];
 
-            let $name = $('input[data-type="name"]').val();
-            consumablesList.push($name);
+            // let $name = $('input[data-type="name"]').val();
+            // consumablesList.push($name);
 
             let $list = $("#consumables-specification-list").find('.consumables-specification-item');
             let arrList = [];
@@ -116,12 +116,13 @@
                 let $specification = $(this).find('.consumables-specification').text();
                 arrList.push($specification);
             });
-            consumablesList.push(arrList);
+            // consumablesList.push(arrList);
 
-            let $memo = $('textarea[data-type="memo"]').val();
-            consumablesList.push($memo);
+            // let $memo = $('textarea[data-type="memo"]').val();
+            // consumablesList.push($memo);
 
-            $('input[name="specification"]').attr("value",consumablesList);
+            // $('input[name="specification"]').attr("value",consumablesList);
+            $('input[name="specification"]').attr("value",arrList);
         });
     });
 </script>

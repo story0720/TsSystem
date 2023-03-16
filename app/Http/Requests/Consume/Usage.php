@@ -34,6 +34,7 @@ class Usage extends FormRequest
         return [
             'standardname.exists' => "請選擇耗材名稱",
             'quantity.required' => "請輸入領取數量",
+            'quantity.integer' => "領取數量必須是整數",
             'quantity.min' => "領取數量最少為0",
             'receiver.required' => "請輸入領取人",
             'receiver.max' => "輸入長度最長為10",

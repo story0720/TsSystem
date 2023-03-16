@@ -68,5 +68,5 @@
 <!-- /.content-wrapper -->
 @endsection
 @section('script')    
-    <script src="{{ asset('js/Consume/consumables/index.js') }}"></script>
+    <script src="{{ asset('js/Consume/usage/index.js') }}"></script>
 @endsection

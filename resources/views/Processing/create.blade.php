@@ -39,7 +39,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="">加工方法</label>
+                                    <label for=""><span class="text-danger">*</span>加工方法</label>
                                     <input type="text" class="form-control" name="categoryname" id="" data-type="processingMain"
                                         placeholder="請輸入加工方法...">
                                 </div>
@@ -47,7 +47,7 @@
                             <div class="row mb-3">
                                 <div class="col">
                                     <div class="form-group mb-0">
-                                        <label for="">加工規格與單價</label>
+                                        <label for=""><span class="text-danger">*</span>加工規格與單價</label>
                                         <div class="input-group">
                                             <input type="text" class="form-control" data-type="specification"
                                                 placeholder="請輸入加工規格...">

@@ -40,7 +40,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col-md-6">
-                                    <label for="">耗材名稱</label>
+                                    <label for=""><span class="text-danger">*</span>耗材名稱</label>
                                     <select class="form-control" name="standardname">
                                         <option value="">請選擇耗材名稱...</option>
                                         @foreach ($data as $item)
@@ -49,7 +49,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">耗材規格</label>
+                                    <label for=""><span class="text-danger">*</span>耗材規格</label>
                                     <div class="input-group">
                                         <input type="text" class="form-control border-right-0" placeholder="請先選擇耗材名稱"
                                             disabled>
@@ -67,12 +67,12 @@
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">領取數量</label>
+                                    <label for=""><span class="text-danger">*</span>領取數量</label>
                                     <input type="number" name="quantity" class="form-control" min="0" value="0"
                                         placeholder="請輸入領取數量..." />
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <label for="">領取人</label>
+                                    <label for=""><span class="text-danger">*</span>領取人</label>
                                     <input type="text" name="receiver" class="form-control" placeholder="請輸入領取人姓名..." />
                                 </div>
                             </div>

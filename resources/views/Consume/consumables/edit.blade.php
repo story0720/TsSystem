@@ -41,7 +41,7 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
-                                    <label for="">耗材名稱</label>
+                                    <label for=""><span class="text-danger">*</span>耗材名稱</label>
                                     <input type="text" class="form-control" data-type="name"
                                         name="standardname" value="{{ $edit['co_standardName'] }}" placeholder="請輸入耗材名稱...">
                                 </div>
@@ -49,7 +49,7 @@
                             <div class="row mb-3">
                                 <div class="col">
                                     <div class="form-group mb-0">
-                                        <label for="">耗材規格</label>
+                                        <label for=""><span class="text-danger">*</span>耗材規格</label>
                                         <div class="input-group">
                                             <input type="text" class="form-control" data-type="specification"
                                             name="specification" placeholder="請輸入耗材規格...">

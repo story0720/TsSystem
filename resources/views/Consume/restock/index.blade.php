@@ -49,7 +49,7 @@
                             <tr>
                                 <td>{{$key->id}}</td>
                                 <td>{{$key->Consume->co_standardName}}</td>
-                                <td>內容（耗材規格）</td>
+                                <td>{{$key->Tag->name}}</td>
                                 <td>{{$key->FactoryCategory->ca_Name}}</td>
                                 <td>{{$key->re_date}}</td>
                                 <td>{{$key->re_quantity}}</td>
@@ -57,7 +57,7 @@
                                 <td>{{$key->re_count}}</td>
                                 <td>{{$key->re_memo}}</td>
                                 <td class="text-center">
-                                    <a class="btn btn-info btn-sm" href="#">
+                                    <a class="btn btn-info btn-sm" href="{{Route('restock.edit',$key->id)}}">
                                         <i class="fas fa-pencil-alt">
                                         </i>
                                         編輯
