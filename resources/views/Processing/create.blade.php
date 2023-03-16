@@ -34,13 +34,13 @@
             <div class="container-fluid">
                 <div class="card">
                     <!-- form start -->
-                    <form action="{{ Route('processing.store') }}" method="post">
+                    <form action="{{ Route('processing.store') }}" method="post" class="processingForm">
                         @csrf
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="">加工方法</label>
-                                    <input type="text" class="form-control" name="categoryname" id=""
+                                    <input type="text" class="form-control" name="categoryname" id="" data-type="processingMain"
                                         placeholder="請輸入加工方法...">
                                 </div>
                             </div>
@@ -69,13 +69,14 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="client_memo">備註</label>
-                                    <textarea class="form-control" id="client_memo" name="memo" rows="5" placeholder="請輸入備註 ..."></textarea>
+                                    <textarea class="form-control" id="client_memo" name="memo" data-type="memo" rows="5" placeholder="請輸入備註 ..."></textarea>
                                 </div>
                             </div>
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer text-center">
                             <input type="hidden" name="processingCreate">
+                            <button type="button" id="test-btn" class="btn btn-primary">111送出</button>
                             <button type="submit" class="btn btn-primary">送出</button>
                         </div>
                     </form>
@@ -113,29 +114,33 @@
             $("#processing-specification-list").append($item);
         });
         // 送出按鈕
-        $('button[type="submit"]').click(function(){
-            let processingList = [];
+        $('.processingForm').on( 'click','button[type="submit"]', function(){
+            // let processingList = [];
 
-            let $main = $('input[data-type="main"]').val();
-            processingList.push($main);
+            // 加工方法
+            // let $main = $('input[data-type="processingMain"]').val();
+            // processingList.push($main);
 
+            // 加工規格
             let $list = $("#processing-specification-list").find('.processing-specification-item');
             let arrList = [];
             $list.each(function(){
                 let $specification = $(this).find('.processing-specification').text();
                 let $price = $(this).find('.processing-price').text().replace("$","");
-                let $item = {
-                    'specification': $specification,
-                    'price': $price
-                };
-                arrList.push($item);
+                // let $item = {
+                //     'specification': $specification,
+                //     'price': $price
+                // };
+                arrList.push($specification+"-"+$price);
             });
-            processingList.push(arrList);
+            // processingList.push(arrList);
 
-            let $memo = $('textarea[data-type="memo"]').val();
-            processingList.push($memo);
+            // 備註
+            // let $memo = $('textarea[data-type="memo"]').val();
+            // processingList.push($memo);
 
-            $('input[name="processingCreate"]').attr("value",processingList);
+            // $('input[name="processingCreate"]').attr("value",processingList);
+            $('input[name="processingCreate"]').attr("value",arrList);
         });
     });
 </script>
