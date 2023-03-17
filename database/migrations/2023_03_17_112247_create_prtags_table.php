@@ -21,7 +21,7 @@ return new class extends Migration
         });
 
 
-        Schema::create('processing_prtags', function (Blueprint $table) {
+        Schema::create('processing_prtag', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('processing_id');
             $table->unsignedInteger('prtag_id');

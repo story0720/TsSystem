@@ -45,17 +45,14 @@ class ProcessingController extends Controller
         $data->pr_categoryname = $request->categoryname;
         $data->pr_memo = $request->memo;
         $data->save();
-        $tags = explode('-', $request->processingCreate);
-
-        foreach ($tags as $item) {
-            $model=Prtag::firstorCreate(['pr_standard'=>1,'pr_price'=>2]);
-            dd($model);
-
+        // dd($request->processingCreate);
+        $tags = explode(',', $request->processingCreate);
+        foreach ($tags as $item) {    
+            $explode=explode('-', $item);
+            $model=Prtag::firstorCreate(['pr_standard'=>$explode[0],'pr_price'=>$explode[1]]);
             $data->Prtags()->attach($model->id);
         }
         return redirect()->action([ProcessingController::class, 'index']);
-
-
 
     }
 
@@ -93,9 +90,16 @@ class ProcessingController extends Controller
     {
         $data = Processing::find($id);
         $data->pr_categoryname = $request->categoryname;
-        $data->pr_standard = $request->standard;
+        // $data->pr_standard = $request->standard;
         $data->pr_memo = $request->memo;
         $data->save();
+
+        $tags = explode(',', $request->processingEdit   );
+        foreach ($tags as $item) {    
+            $explode=explode('-', $item);
+            $model=Prtag::firstorCreate(['pr_standard'=>$explode[0],'pr_price'=>$explode[1]]);
+            $data->Prtags()->sync($model->id);
+        }
         return redirect()->action([ProcessingController::class, 'index']);
     }
 

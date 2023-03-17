@@ -28,7 +28,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table class="table table-bordered" id="listtable">
+                        <table class="table table-bordered">
                             <thead>
                                 <tr>
                                     <th class="text-center" style="width: 2rem;">#</th>
@@ -48,12 +48,12 @@
                                     <tr>
                                         <td class="text-center">{{ $item->id }}</td>
                                         <td>{{ $item->pr_categoryname }}</td>
-                                        <td class="p-0">
-                                            @foreach (explode(',', $item->pr_standard) as $data)
-                                            <div class="row m-0 w-100">
-                                                <div class="col p-3 border-bottom">{{ $data }}</div>
-                                                <div class="col p-3 border-bottom border-left">{ $2,000 }</div>
-                                            </div>
+                                        <td class="p-0">                                          
+                                            @foreach ($item->Prtags as $key)
+                                                <div class="row m-0 w-100">
+                                                    <div class="col p-3 border-bottom">{{ $key->pr_standard }}</div>
+                                                    <div class="col p-3 border-bottom border-left">${{ $key->pr_price }}</div>
+                                                </div>
                                             @endforeach
                                         </td>
                                         <td>{{ $item->pr_memo }}</td>
@@ -79,7 +79,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->                  
+                    <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
             </div>
@@ -88,6 +88,6 @@
         <!-- /.content -->
     </div>
 @endsection
-@section('script')    
+@section('script')
     <script src="{{ asset('js/Processing/index.js') }}"></script>
 @endsection

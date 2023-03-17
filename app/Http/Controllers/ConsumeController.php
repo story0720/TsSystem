@@ -89,12 +89,18 @@ class ConsumeController extends Controller
      */
     public function update(Consumable $request, $id)
     {
-        dd($request->all());
+        // dd($request->all());
         $data = Consume::find($id);
         $data->co_standardName = $request->standardname;
         $data->co_standard = $request->standard;
         $data->co_memo = $request->memo;
         $data->save();
+        $tags = explode(',', $request->specification);
+        $data->save();
+        foreach ($tags as $item => $key) {
+            $model = Tag::firstorCreate(['name' => $key]);
+            $data->tags()->sync($model->id);
+        }       
         return redirect()->action([ConsumeController::class, 'index']);
     }
 
