@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\Processing as RequestsProcessing;
 use App\Models\Processing;
+use App\Models\Prtag;
 use Exception;
 use Illuminate\Http\Request;
 use Symfony\Component\Process\Process;
@@ -39,14 +40,23 @@ class ProcessingController extends Controller
      */
     public function store(RequestsProcessing $request)
     {
-        // dd($request->all());
+        //  dd($request->all());
         $data = new Processing();
         $data->pr_categoryname = $request->categoryname;
-        $data->pr_standard = $request->standard;
         $data->pr_memo = $request->memo;
-        // $data->pr_price
         $data->save();
+        $tags = explode('-', $request->processingCreate);
+
+        foreach ($tags as $item) {
+            $model=Prtag::firstorCreate(['pr_standard'=>1,'pr_price'=>2]);
+            dd($model);
+
+            $data->Prtags()->attach($model->id);
+        }
         return redirect()->action([ProcessingController::class, 'index']);
+
+
+
     }
 
     /**

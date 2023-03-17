@@ -16,11 +16,12 @@ return new class extends Migration
     {
         Schema::create('processings', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('pr_categoryname');                  //種類名稱
-            $table->string('pr_standard')->nullable();          //規格
+            $table->string('pr_categoryname');                  //加工方法
             $table->string('pr_memo')->nullable();              //備註
-            $table->integer('pr_price');                        //單價
             $table->timestamps();
+
+            // $table->string('pr_standard')->nullable();          //加工規格
+            // $table->integer('pr_price');                        //單價
         });
     }
 

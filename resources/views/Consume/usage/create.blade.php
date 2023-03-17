@@ -62,13 +62,13 @@
                                     <select class="form-control d-none" name="specification" id="">
                                         <option value="">請選擇耗材規格</option>
                                         @foreach ($data as $item)
-                                            <option value="{{ $item->id }}">{{ $item->co_standardName }}</option>
+                                            <option value="{{ $item->id }}" >{{ $item->co_standardName }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <label for=""><span class="text-danger">*</span>領取數量</label>
-                                    <input type="number" name="quantity" class="form-control" min="0" value="0"
+                                    <input type="number" name="quantity" class="form-control" min="0" value="0" value="old('quantity')"
                                         placeholder="請輸入領取數量..." />
                                 </div>
                                 <div class="form-group col-md-6">
@@ -79,7 +79,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="client_memo">備註</label>
-                                    <textarea class="form-control" id="client_memo" rows="5" name='memo' placeholder="請輸入備註 ..."></textarea>
+                                    <textarea class="form-control" id="client_memo" rows="5" name='memo'value="old('memo')" placeholder="請輸入備註 ..."></textarea>
                                 </div>
                             </div>
                         </div>

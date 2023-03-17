@@ -76,7 +76,6 @@
                         <!-- /.card-body -->
                         <div class="card-footer text-center">
                             <input type="hidden" name="processingCreate">
-                            <button type="button" id="test-btn" class="btn btn-primary">111送出</button>
                             <button type="submit" class="btn btn-primary">送出</button>
                         </div>
                     </form>

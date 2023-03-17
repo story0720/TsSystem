@@ -39,7 +39,7 @@ class ConsumeController extends Controller
      */
     public function store(Consumable $request)
     {
-        //dd($request->all());
+        // dd($request->all());
         try{
             $data = new Consume();
             $data->co_standardName = $request->standardname;

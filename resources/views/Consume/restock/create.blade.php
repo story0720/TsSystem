@@ -40,10 +40,10 @@
                         <div class="row">
                             <div class="form-group col-md-6">
                                 <label for=""><span class="text-danger">*</span>耗材名稱</label>
-                                <select class="form-control" data-type="name" name="coname" id="">
+                                <select class="form-control" data-type="name" name="coname" id=""  >
                                     <option value="">請選擇耗材名稱...</option>
                                     @foreach ($consume as $key)
-                                    <option value="{{ $key->id }}">{{ $key->co_standardName }}</option>
+                                    <option value="{{ $key->id }}"{{old('coname')==$key->id ? 'selected' : '' }}>{{ $key->co_standardName }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -66,13 +66,13 @@
                                 <select class="form-control" name="caname" id="">
                                     <option value="">請選擇耗材廠商...</option>
                                     @foreach ($category as $key)
-                                    <option value="{{ $key->ca_id }}">{{ $key->ca_Name }}</option>
+                                    <option value="{{ $key->ca_id }}" {{old('caname')==$key->ca_id ? 'selected' : '' }}>{{ $key->ca_Name }}</option>
                                     @endforeach
                                 </select>
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">進貨日期</label>
-                                <input type="date" name="date" value="{{ date('Y-m-d') }}" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                                <input type="date" name="date" value="{{ old('date') }}" class="form-control datetimepicker-input" data-target="#reservationdate" />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for=""><span class="text-danger">*</span>進貨單價</label>
@@ -82,7 +82,7 @@
                                             <i class="fas fa-dollar-sign"></i>
                                         </span>
                                     </div>
-                                    <input type="number" name="unitprice" class="form-control" id="UnitPrice" oninput="countall()" placeholder="請輸入進貨單價...">
+                                    <input type="number" name="unitprice" value="{{old('unitprice')}}" class="form-control" id="UnitPrice" oninput="countall()" placeholder="請輸入進貨單價...">
                                 </div>
                             </div>
                             <div class="form-group col-md-6">
@@ -93,7 +93,7 @@
                                             <i class="fas fa-truck"></i>
                                         </span>
                                     </div>
-                                    <input type="number" class="form-control" name="quantity" id="" min="1" placeholder="請輸入進貨數量..." oninput="countall()">
+                                    <input type="number" class="form-control"  value="{{old('quantity')}}"  name="quantity" id="" min="1" placeholder="請輸入進貨數量..." oninput="countall()">
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
@@ -104,12 +104,12 @@
                                             <i class="fas fa-dollar-sign"></i>
                                         </span>
                                     </div>
-                                    <input type="number" name="count" class="form-control text-danger" id="count" min="1" value="0" placeholder="系統自動計算（公式：單價 × 數量）" readonly />
+                                    <input type="number" name="count" value="{{old('count')}}" class="form-control text-danger" id="count" min="1" value="0" placeholder="系統自動計算（公式：單價 × 數量）" readonly />
                                 </div>
                             </div>
                             <div class="form-group col-md-12">
                                 <label for="memo">備註</label>
-                                <textarea class="form-control" name="memo" id="memo" rows="5" placeholder="請輸入備註 ..."></textarea>
+                                <textarea class="form-control" name="memo" id="memo" rows="5" placeholder="請輸入備註 ...">{{old('memo')}}</textarea>
                             </div>
                         </div>
                     </div>

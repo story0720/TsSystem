@@ -39,6 +39,7 @@ class UsageController extends Controller
      */
     public function store(ConsumeUsage $request)
     {
+        // dd($request->all());
         $data=new Usage();
         $data->co_id=$request->standardname;
         $data->tag_id=$request->specification;
