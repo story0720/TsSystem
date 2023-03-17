@@ -41,12 +41,12 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="client_category"><span class="text-danger">*</span>種類名稱</label>
-                                    <input type="text" class="form-control" name="Name" id="client_category"
+                                    <input type="text" class="form-control" name="Name" id="client_category" value="{{old('Name')}}"
                                         placeholder="請輸入廠商種類名稱">
                                 </div>
                                 <div class="form-group col">
                                     <label for="client_category_memo">備註</label>
-                                    <textarea class="form-control" name="Memo" id="client_category_memo" rows="5" placeholder="請輸入備註 ..."></textarea>
+                                    <textarea class="form-control" name="Memo" id="client_category_memo" rows="5"  placeholder="請輸入備註 ...">{{old('Memo')}}</textarea>
                                 </div>
                             </div>
                         </div>

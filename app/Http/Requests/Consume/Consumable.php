@@ -25,7 +25,7 @@ class Consumable extends FormRequest
     {
         return [
             'standardname' => 'required|string|max:15',
-            'standard' => 'max:30',
+            'standard' => 'required|max:30',
             'memo' => 'string|nullable|max:50',
         ];
     }
@@ -33,10 +33,10 @@ class Consumable extends FormRequest
     {
         return [
             'standardname.required' => '請輸入耗材名稱',
-            'standardname.max' => '長度最大為30個字',
-            // 'standard.required' => '請輸入耗材規格',
-            'standard.max' => '長度最大為10個字',
-            'memo.max' => '長度最大為50個字',
+            'standardname.max' => '耗材種類長度最大為30個字',
+            'standard.required' => '請輸入耗材規格',
+            'standard.max' => '耗材規格長度最大為10個字',
+            'memo.max' => '備註長度最大為50個字',
         ];
     }
 }

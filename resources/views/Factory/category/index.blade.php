@@ -45,27 +45,24 @@
                                         <td>{{ $item->ca_Name }}</td>
                                         <td>{{ $item->ca_Memo }}</td>
                                         <td class="text-center">
-                                            <a class="btn btn-info btn-sm" href="{{ Route('category.edit', $item->ca_id) }}">
+                                            <a class="btn btn-info btn-sm"
+                                                href="{{ Route('category.edit', $item->ca_id) }}">
                                                 <i class="fas fa-pencil-alt">
                                                 </i>
                                                 編輯
                                             </a>
-                                            <form action="{{ Route('category.delete', $item->ca_id) }}" method="post"
-                                                class="d-inline">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash">
-                                                    </i>
-                                                    刪除
-                                                </button>
-                                            </form>
+                                            <button type="submit" id="sub-btn" class="btn btn-danger btn-sm"
+                                                data-id="{{ $item->ca_id }}">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                刪除
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>                  
+                    </div>
                 </div>
                 <!-- /.card -->
             </div>
@@ -75,6 +72,6 @@
     </div>
 @endsection
 
-@section('script')    
+@section('script')
     <script src="{{ asset('js/Factory/category/index.js') }}"></script>
 @endsection

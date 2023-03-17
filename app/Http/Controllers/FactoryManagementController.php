@@ -109,12 +109,17 @@ class FactoryManagementController extends Controller
     public function destroy($id)
     {        
         try {
-            FactoryManagement::find($id)->delete();
-            //return redirect()->action([FactoryManagementController::class, 'index']);
-            return response()->json_encode(['title'=>"刪除成功",'icon'=>'success']);
+            $result=FactoryManagement::find($id)->delete();           
+            if ($result) {
+                $data = ['icon' => 'success', 'title' => '刪除成功!'];
+                return response()->json($data, 200);
+            } else {
+                $data = ['icon' => 'warning', 'title' => '刪除失敗', 'text' => '可能有其他筆資料有關聯請再次檢查'];
+                return response()->json($data);
+            }
         } catch (Exception $e) {
-            return response()->json_encode(['title'=>"刪除失敗",'icon'=>'errors']);
-            //return $e->getMessage();
+            $data = ['icon' => 'error', 'title' => '刪除失敗', 'text' => '可能有其他筆資料有關聯請再次檢查'];
+            return response()->json($data);
         }
     }
 }

@@ -89,6 +89,7 @@ class ConsumeController extends Controller
      */
     public function update(Consumable $request, $id)
     {
+        dd($request->all());
         $data = Consume::find($id);
         $data->co_standardName = $request->standardname;
         $data->co_standard = $request->standard;

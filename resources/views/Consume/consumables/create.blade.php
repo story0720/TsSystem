@@ -41,7 +41,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for=""><span class="text-danger">*</span>耗材名稱</label>
-                                    <input type="text" class="form-control" data-type="name"
+                                    <input type="text" class="form-control" data-type="name" value="{{old('standardname')}}"
                                         name="standardname" placeholder="請輸入耗材名稱...">
                                 </div>
                             </div>
@@ -67,7 +67,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="memo">備註</label>
-                                    <textarea class="form-control" date-type="memo" name="memo" id="memo" rows="5" placeholder="請輸入備註 ..."></textarea>
+                                    <textarea class="form-control" date-type="memo" name="memo" id="memo" rows="5" placeholder="請輸入備註 ...">{{old('memo')}}</textarea>
                                 </div>
                             </div>
                         </div>

@@ -129,29 +129,19 @@
                                                 </i>
                                                 編輯
                                             </a>
-                                            <form action="{{ Route('management.delete', $item->mn_id) }}" method="post"
-                                                class="d-inline">
-                                                @method('DELETE')
-                                                @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash">
-                                                    </i>
-                                                    刪除
-                                                </button>
-                                                <button type="button" onclick="test()" flag="{{ $item->mn_id }}"
-                                                    class="btn btn-danger btn-sm">
-                                                    <i class="fas fa-trash">
-                                                    </i>
-                                                    測試
-                                                </button>
-                                            </form>
+                                            <button type="submit" id="sub-btn" class="btn btn-danger btn-sm"
+                                                data-id="{{ $item->mn_id }}">
+                                                <i class="fas fa-trash">
+                                                </i>
+                                                刪除
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
                             </tbody>
                         </table>
                     </div>
-                    <!-- /.card-body -->                   
+                    <!-- /.card-body -->
                 </div>
                 <!-- /.card -->
             </div>
