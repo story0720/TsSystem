@@ -6,6 +6,7 @@ use App\Http\Requests\Consume\Usage as ConsumeUsage;
 use Illuminate\Http\Request;
 use App\Models\Consume;
 use App\Models\Usage;
+use Exception;
 
 class UsageController extends Controller
 {
@@ -93,6 +94,18 @@ class UsageController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $data = Usage::find($id)->delete();
+            if ($data) {
+                $data = ['icon' => 'success', 'title' => '刪除成功!'];
+                return response()->json($data, 200);
+            } else {
+                $data = ['icon' => 'warning', 'title' => '刪除失敗', 'text' => '可能有其他筆資料有關聯請再次檢查'];
+                return response()->json($data);
+            }
+        } catch (Exception $e) {
+            $data = ['icon' => 'error', 'title' => '刪除失敗', 'text' => '可能有其他筆資料有關聯請再次檢查'];
+            return response()->json($data);
+        }
     }
 }

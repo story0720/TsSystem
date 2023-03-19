@@ -47,13 +47,12 @@ class ProcessingController extends Controller
         $data->save();
         // dd($request->processingCreate);
         $tags = explode(',', $request->processingCreate);
-        foreach ($tags as $item) {    
-            $explode=explode('-', $item);
-            $model=Prtag::firstorCreate(['pr_standard'=>$explode[0],'pr_price'=>$explode[1]]);
+        foreach ($tags as $item) {
+            $explode = explode('-', $item);
+            $model = Prtag::firstorCreate(['pr_standard' => $explode[0], 'pr_price' => $explode[1]]);
             $data->Prtags()->attach($model->id);
         }
         return redirect()->action([ProcessingController::class, 'index']);
-
     }
 
     /**
@@ -113,11 +112,14 @@ class ProcessingController extends Controller
     public function destroy($id)
     {
         try {
-            Processing::find($id)->delete();
-            return redirect()->action([ProcessingController::class, 'index']);
+            $data = Processing::findOrFail($id);
+            $data->Prtags()->delete();
+            $data->delete();
+            $response = ['icon' => 'success', 'title' => '刪除成功!'];
+            return response()->json($response);
         } catch (Exception $e) {
-            //return "刪除失敗";
-            return $e->getMessage();
+            $response = ['icon' => 'error','title' => '刪除失敗','text' => '可能有其他筆資料有關聯請再次檢查'];
+            return response()->json($response);
         }
     }
 }

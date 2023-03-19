@@ -48,11 +48,12 @@
                                     <tr>
                                         <td class="text-center">{{ $item->id }}</td>
                                         <td>{{ $item->pr_categoryname }}</td>
-                                        <td class="p-0">                                          
+                                        <td class="p-0">
                                             @foreach ($item->Prtags as $key)
                                                 <div class="row m-0 w-100">
                                                     <div class="col p-3 border-bottom">{{ $key->pr_standard }}</div>
-                                                    <div class="col p-3 border-bottom border-left">${{ $key->pr_price }}</div>
+                                                    <div class="col p-3 border-bottom border-left">${{ $key->pr_price }}
+                                                    </div>
                                                 </div>
                                             @endforeach
                                         </td>
@@ -67,7 +68,8 @@
                                                 class="d-inline">
                                                 @method('Delete')
                                                 @csrf
-                                                <button type="submit" class="btn btn-danger btn-sm">
+                                                <button type="button" id="sub-btn" data-id="{{ $item->id }}"
+                                                    class="btn btn-danger btn-sm">
                                                     <i class="fas fa-trash">
                                                     </i>
                                                     刪除
