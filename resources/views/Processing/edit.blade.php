@@ -90,7 +90,7 @@
                         </div>
                         <!-- /.card-body -->
                         <div class="card-footer text-center">
-                            <input type="hidden" name="processingEdit">
+                            <input type="hidden" name="processingCreate">
                             <button type="submit" class="btn btn-primary">送出</button>
                         </div>
                     </form>
@@ -106,6 +106,7 @@
 @section('script')
     <script>
         $(function() {
+            getConsumablesSpec();
             // 新增規格按鈕
             $('button[control="add-specification"]').click(function() {
                 // 規格
@@ -126,30 +127,11 @@
                 </div>
             </div>`);
                 $("#processing-specification-list").append($item);
-                // 加工規格
-                let $list = $("#processing-specification-list").find('.processing-specification-item');
-                let arrList = [];
-                $list.each(function() {
-                    let $specification = $(this).find('.processing-specification').text();
-                    let $price = $(this).find('.processing-price').text().replace("$", "");
-                    arrList.push($specification + "-" + $price);
-                });
-                console.log(arrList);
-                $('input[name="processingEdit"]').attr("value", arrList);
+                getConsumablesSpec();
             });
             // 叉叉按鈕
             $('.close').on('click', function() {
-
-                // 加工規格
-                let $list = $("#processing-specification-list").find('.processing-specification-item');
-                let arrList = [];
-                $list.each(function() {
-                    let $specification = $(this).find('.processing-specification').text();
-                    let $price = $(this).find('.processing-price').text().replace("$", "");
-                    arrList.push($specification + "-" + $price);
-                });
-                console.log(arrList);
-                $('input[name="processingEdit"]').attr("value", arrList);
+                getConsumablesSpec();
             });
             // 送出按鈕
             $('.processingForm').on('click', 'button[type="submit"]', function() {
@@ -178,9 +160,22 @@
                 // processingList.push($memo);
 
                 // $('input[name="processingEdit"]').attr("value", processingList);
-                $('input[name="processingEdit"]').attr("value", arrList);
+                $('input[name="processingCreate"]').attr("value", arrList);
             });
-            console.log("123");
+            function getConsumablesSpec(){
+                
+                // 加工規格
+                let $list = $("#processing-specification-list").find('.processing-specification-item');
+                let arrList = [];
+                $list.each(function() {
+                    let $specification = $(this).find('.processing-specification').text();
+                    let $price = $(this).find('.processing-price').text().replace("$", "");
+                    arrList.push($specification + "-" + $price);
+                });
+                console.log(arrList);
+                $('input[name="processingCreate"]').attr("value", arrList);
+            }
+            getConsumablesSpec();
         });
     </script>
 @endsection

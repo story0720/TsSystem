@@ -72,7 +72,7 @@
                             </div>
                             <div class="form-group col-md-6">
                                 <label for="">進貨日期</label>
-                                <input type="date" name="date" value="{{ old('date') }}" class="form-control datetimepicker-input" data-target="#reservationdate" />
+                                <input type="date" name="date"  class="form-control datetimepicker-input" data-target="#reservationdate" />
                             </div>
                             <div class="form-group col-md-6">
                                 <label for=""><span class="text-danger">*</span>進貨單價</label>

@@ -40,7 +40,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for=""><span class="text-danger">*</span>加工方法</label>
-                                    <input type="text" class="form-control" name="categoryname" id="" data-type="processingMain"
+                                    <input type="text" class="form-control" name="categoryname" id="" data-type="processingMain" value="{{old('categoryname')}}"
                                         placeholder="請輸入加工方法...">
                                 </div>
                             </div>
@@ -50,9 +50,9 @@
                                         <label for=""><span class="text-danger">*</span>加工規格與單價</label>
                                         <div class="input-group">
                                             <input type="text" class="form-control" data-type="specification"
-                                                placeholder="請輸入加工規格...">
-                                            <input type="text" class="form-control" data-type="price"
-                                                placeholder="請輸入單價...">
+                                                placeholder="請輸入加工規格..." >
+                                            <input type="number" min="0" class="form-control" data-type="price" 
+                                                placeholder="請輸入單價..." >
                                             <span class="input-group-append">
                                                 <button type="button" control="add-specification"
                                                     class="btn btn-info btn-flat rounded-right">
@@ -69,7 +69,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="client_memo">備註</label>
-                                    <textarea class="form-control" id="client_memo" name="memo" data-type="memo" rows="5" placeholder="請輸入備註 ..."></textarea>
+                                    <textarea class="form-control" id="client_memo" name="memo" data-type="memo" rows="5" placeholder="請輸入備註 ...">{{old('memo')}}"</textarea>
                                 </div>
                             </div>
                         </div>

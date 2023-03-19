@@ -40,7 +40,7 @@ class ProcessingController extends Controller
      */
     public function store(RequestsProcessing $request)
     {
-        //  dd($request->all());
+        // dd($request->all());
         $data = new Processing();
         $data->pr_categoryname = $request->categoryname;
         $data->pr_memo = $request->memo;
@@ -90,16 +90,16 @@ class ProcessingController extends Controller
     {
         $data = Processing::find($id);
         $data->pr_categoryname = $request->categoryname;
-        // $data->pr_standard = $request->standard;
         $data->pr_memo = $request->memo;
         $data->save();
-
-        $tags = explode(',', $request->processingEdit   );
-        foreach ($tags as $item) {    
-            $explode=explode('-', $item);
-            $model=Prtag::firstorCreate(['pr_standard'=>$explode[0],'pr_price'=>$explode[1]]);
-            $data->Prtags()->sync($model->id);
+        $tags = explode(',', $request->processingCreate);
+        $tagIds = [];
+        foreach ($tags as $item) {
+            $explode = explode('-', $item);
+            $prtag = Prtag::updateOrCreate(['pr_standard' => $explode[0], 'pr_price' => $explode[1]]);
+            $tagIds[] = $prtag->id;
         }
+        $data->Prtags()->sync($tagIds);
         return redirect()->action([ProcessingController::class, 'index']);
     }
 

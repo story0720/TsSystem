@@ -38,7 +38,7 @@ return new class extends Migration
      */
     public function down()
     {
+        Schema::dropIfExists('processing_prtag');
         Schema::dropIfExists('prtags');
-        Schema::dropIfExists('processings');
     }
 };

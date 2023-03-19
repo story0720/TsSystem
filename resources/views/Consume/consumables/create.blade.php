@@ -41,8 +41,8 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for=""><span class="text-danger">*</span>耗材名稱</label>
-                                    <input type="text" class="form-control" data-type="name" value="{{old('standardname')}}"
-                                        name="standardname" placeholder="請輸入耗材名稱...">
+                                    <input type="text" class="form-control" data-type="name"
+                                        value="{{ old('standardname') }}" name="standardname" placeholder="請輸入耗材名稱...">
                                 </div>
                             </div>
                             <div class="row mb-3">
@@ -53,7 +53,8 @@
                                             <input type="text" class="form-control" data-type="specification"
                                                 name="" placeholder="請輸入耗材規格...">
                                             <span class="input-group-append">
-                                                <button type="button" control="add-specification" class="btn btn-info btn-flat rounded-right">
+                                                <button type="button" control="add-specification"
+                                                    class="btn btn-info btn-flat rounded-right">
                                                     <i class="fas fa-plus"></i>
                                                 </button>
                                             </span>
@@ -67,7 +68,7 @@
                             <div class="row">
                                 <div class="form-group col">
                                     <label for="memo">備註</label>
-                                    <textarea class="form-control" date-type="memo" name="memo" id="memo" rows="5" placeholder="請輸入備註 ...">{{old('memo')}}</textarea>
+                                    <textarea class="form-control" date-type="memo" name="memo" id="memo" rows="5" placeholder="請輸入備註 ...">{{ old('memo') }}</textarea>
                                 </div>
                             </div>
                         </div>
@@ -87,43 +88,56 @@
     </div>
 @endsection
 @section('script')
-<script>
-    $(function(){
-        // 新增規格按鈕
-        $('button[control="add-specification"]').click(function(){
-            // 規格
-            let $specification = $('input[data-type="specification"]').val();
-            // 被新增的項目結構
-            let $item = $(`<div class="consumables-specification-item alert alert-info d-inline-flex mb-0 p-0">
+    <script>
+        $(function() {
+            getConsumablesSpec();
+            // 新增規格按鈕
+            $('button[control="add-specification"]').click(function() {
+                // 規格
+                let $specification = $('input[data-type="specification"]').val();
+                // 被新增的項目結構
+                let $item = $(`<div class="consumables-specification-item alert alert-info d-inline-flex mb-0 p-0">
                 <button type="button" class="close text-white pl-2" data-dismiss="alert"
                     aria-hidden="true" style="opacity: 1;">&times;</button>
                 <div class="pl-2 pr-1 py-1" style="font-size: 1.05rem;">
                     <span class="consumables-specification">${$specification}</span>
                 </div>
             </div>`);
-            $("#consumables-specification-list").append($item);
-        });
-        // 送出按鈕
-        $('button[type="submit"]').click(function(){
-            // let consumablesList = [];
-
-            // let $name = $('input[data-type="name"]').val();
-            // consumablesList.push($name);
-
-            let $list = $("#consumables-specification-list").find('.consumables-specification-item');
-            let arrList = [];
-            $list.each(function(){
-                let $specification = $(this).find('.consumables-specification').text();
-                arrList.push($specification);
+                $("#consumables-specification-list").append($item);
+                getConsumablesSpec();
             });
-            // consumablesList.push(arrList);
+            // 送出按鈕
+            $('button[type="submit"]').click(function() {
+                // let consumablesList = [];
 
-            // let $memo = $('textarea[data-type="memo"]').val();
-            // consumablesList.push($memo);
+                // let $name = $('input[data-type="name"]').val();
+                // consumablesList.push($name);
 
-            // $('input[name="specification"]').attr("value",consumablesList);
-            $('input[name="specification"]').attr("value",arrList);
+                let $list = $("#consumables-specification-list").find('.consumables-specification-item');
+                let arrList = [];
+                $list.each(function() {
+                    let $specification = $(this).find('.consumables-specification').text();
+                    arrList.push($specification);
+                });
+                // consumablesList.push(arrList);
+
+                // let $memo = $('textarea[data-type="memo"]').val();
+                // consumablesList.push($memo);
+
+                // $('input[name="specification"]').attr("value",consumablesList);
+                $('input[name="specification"]').attr("value", arrList);
+            });
+
+            function getConsumablesSpec() {
+                let $list = $("#consumables-specification-list").find('.consumables-specification-item');
+                let arrList = [];
+                $list.each(function() {
+                    let $specification = $(this).find('.consumables-specification').text();
+                    arrList.push($specification);
+                });
+                $('input[name="specification"]').attr("value", arrList);
+            }
+            getConsumablesSpec();
         });
-    });
-</script>
+    </script>
 @endsection

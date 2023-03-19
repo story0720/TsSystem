@@ -40,7 +40,7 @@ class ConsumeController extends Controller
     public function store(Consumable $request)
     {
         // dd($request->all());
-        try{
+        try {
             $data = new Consume();
             $data->co_standardName = $request->standardname;
             $data->co_memo = $request->memo;
@@ -51,10 +51,9 @@ class ConsumeController extends Controller
                 $data->tags()->attach($model->id);
             }
             return redirect()->action([ConsumeController::class, 'index']);
-        }catch(Exception $x){
-            return "儲存失敗"+$x;
+        } catch (Exception $x) {
+            return "儲存失敗" + $x;
         }
-       
     }
 
     /**
@@ -90,17 +89,27 @@ class ConsumeController extends Controller
     public function update(Consumable $request, $id)
     {
         // dd($request->all());
+        // $data = Consume::find($id);
+        // $data->co_standardName = $request->standardname;
+        // $data->co_memo = $request->memo;
+        // $data->save();
+        // $tags = explode(',', $request->specification);
+        // // dd($tags);
+        // foreach ($tags as $item => $key) {
+        //     $model = Tag::UpdateorCreate(['name' => $key]);
+        //     $data->tags()->sync($model->id);
+        // }
         $data = Consume::find($id);
         $data->co_standardName = $request->standardname;
-        $data->co_standard = $request->standard;
         $data->co_memo = $request->memo;
         $data->save();
-        $tags = explode(',', $request->specification);
-        $data->save();
-        foreach ($tags as $item => $key) {
-            $model = Tag::firstorCreate(['name' => $key]);
-            $data->tags()->sync($model->id);
-        }       
+        $tags = array_unique(explode(',', $request->specification)); // 去除重复元素
+        $tagIds = [];
+        foreach ($tags as $item) {
+            $model = Tag::updateOrCreate(['name' => $item]);
+            $tagIds[] = $model->id;
+        }
+        $data->tags()->sync($tagIds);
         return redirect()->action([ConsumeController::class, 'index']);
     }
 
@@ -112,12 +121,20 @@ class ConsumeController extends Controller
      */
     public function destroy($id)
     {
-        try {
-            Consume::find($id)->delete();
-            return redirect()->action([ConsumeController::class, 'index']);
+        try {          
+            $data=Consume::find($id);
+            $data->tags()->delete();
+            $data->delete();           
+            if ($data) {
+                $data = ['icon' => 'success', 'title' => '刪除成功!'];
+                return response()->json($data, 200);
+            } else {
+                $data = ['icon' => 'warning', 'title' => '刪除失敗', 'text' => '可能有其他筆資料有關聯請再次檢查'];
+                return response()->json($data);
+            }
         } catch (Exception $e) {
-            //return "刪除失敗";
-            return $e->getMessage();
+            $data = ['icon' => 'error', 'title' => '刪除失敗', 'text' => '可能有其他筆資料有關聯請再次檢查'];
+            return response()->json($data);
         }
     }
     //耗材庫存管理

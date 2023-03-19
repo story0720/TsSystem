@@ -24,18 +24,17 @@ class Processing extends FormRequest
     public function rules()
     {
         return [
-            'categoryname'=>'required|max:10',
-           //'standard'=>'required',
-            'memo'=>'string|nullable',
+            'categoryname' => 'required|max:10',
+            'processingCreate' => 'required',
+            'memo' => 'string|nullable',
         ];
     }
     public function messages()
     {
         return [
-            'categoryname.required'=>'請輸入加工方法',
-            'categoryname.max'=>'最長為10個字',
-            //'standard.required'=>'請輸入加工規格',            
+            'categoryname.required' => '請輸入加工方法',
+            'categoryname.max' => '最長為10個字',
+            'processingCreate.required' => '請輸入加工規格及單價',
         ];
-        
     }
 }
