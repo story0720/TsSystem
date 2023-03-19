@@ -66,6 +66,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource("/monthly", App\Http\Controllers\MonthlyController::class);
 
     //耗材使用紀錄
+    Route::post('/usage/GeData/{id}',[App\Http\Controllers\RestockController::class, 'GeData'])->name('usage.GeData');
     Route::resource("/usage", App\Http\Controllers\UsageController::class);
 
     //標籤雲

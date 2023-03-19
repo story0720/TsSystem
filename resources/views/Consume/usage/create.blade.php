@@ -40,6 +40,17 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="form-group col-md-6">
+                                    <label for=""><span class="text-danger">*</span>請選擇單號</label>
+                                    <select class="form-control" name="order_number" id="">
+                                        <option value="">請選擇單號...</option>
+                                        @foreach ($order_number as $key)
+                                            <option
+                                                value="{{ $key->id }}"{{ old('order_number') == $key->id ? 'selected' : '' }}>
+                                                {{ $key->restock_order_number }}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                <div class="form-group col-md-6">
                                     <label for=""><span class="text-danger">*</span>耗材名稱</label>
                                     <select class="form-control" data-type="name" name="coname" id="">
                                         <option value="">請選擇耗材名稱...</option>
@@ -150,4 +161,6 @@
             });
         });
     </script>
+    <script src="{{ asset('js/Consume/consumables/index.js') }}"></script>
+
 @endsection

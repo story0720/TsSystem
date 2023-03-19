@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\Consume\Restock;
 use App\Http\Requests\Consume\Usage as ConsumeUsage;
 use Illuminate\Http\Request;
 use App\Models\Consume;
+use App\Models\Restock as ModelsRestock;
 use App\Models\Usage;
 use Exception;
 
@@ -17,8 +19,8 @@ class UsageController extends Controller
      */
     public function index()
     {
-        $all=Usage::all();
-        return view('Consume.usage.index',['data'=>$all]);
+        $all = Usage::all();
+        return view('Consume.usage.index', ['data' => $all]);
     }
 
     /**
@@ -28,8 +30,9 @@ class UsageController extends Controller
      */
     public function create()
     {
-        $data=Consume::orderby('id', 'desc')->get();
-        return view('Consume.usage.create',['data'=>$data]);
+        $order_number = ModelsRestock::select('restock_order_number', 'id')->get();
+        $data = Consume::orderby('id', 'desc')->get();
+        return view('Consume.usage.create', ['data' => $data, 'order_number' => $order_number]);
     }
 
     /**
@@ -41,13 +44,13 @@ class UsageController extends Controller
     public function store(ConsumeUsage $request)
     {
         //dd($request->all());
-        $data=new Usage();
-        $data->co_id=$request->coname;
-        $data->tag_id=$request->specification;
-        $data->quantity=$request->quantity;
-        $data->receiver=$request->receiver;
-        $data->memo=$request->memo;
-        $data->getdate=now();
+        $data = new Usage();
+        $data->co_id = $request->coname;
+        $data->tag_id = $request->specification;
+        $data->quantity = $request->quantity;
+        $data->receiver = $request->receiver;
+        $data->memo = $request->memo;
+        $data->getdate = now();
         $data->save();
         return redirect()->action([UsageController::class, 'index']);
     }
@@ -107,5 +110,13 @@ class UsageController extends Controller
             $data = ['icon' => 'error', 'title' => '刪除失敗', 'text' => '可能有其他筆資料有關聯請再次檢查'];
             return response()->json($data);
         }
+    }
+    //給單號取得予耗材名稱、規格等資料
+    public function GeData($id)
+    {
+        dd($id);
+        // $data = ModelsRestock::select('id', 'restock_order_number')->where('id', $request->$id)->get();
+        // return response()->json($request);
+        return 123;
     }
 }

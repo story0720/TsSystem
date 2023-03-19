@@ -15,8 +15,8 @@ class ConsumeSeeder extends Seeder
     public function run()
     {
         DB::table('consumes')->insert([
-            ['co_standardName'=>"耗材名稱1"],
-            ['co_standardName'=>"耗材名稱2"],
+            ['co_standardName'=>"剪刀"],
+            ['co_standardName'=>"掃把"],
         ]);
     }
 }
