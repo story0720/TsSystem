@@ -27,6 +27,7 @@ class Restock extends FormRequest
             'caname' => 'exists:factorycategorys,ca_id',
             'coname' => 'exists:consumes,id',
             'date' => 'date',
+            'Factoryname' => 'required|integer',
             'quantity' => 'required|integer|min:0',
             'unitprice' => 'required|integer|min:0',
             'count' => 'required|integer|min:0',
@@ -48,6 +49,8 @@ class Restock extends FormRequest
             'count.min' => '小計金額最小值為0',
             'specification.required' => '請選擇耗材規格',
             'specification.integer' => '請選擇耗材規格',
+            'Factoryname.required' => '請選擇耗材廠商',
+            'Factoryname.integer' => '請選擇耗材廠商',
         ];
     }
 }

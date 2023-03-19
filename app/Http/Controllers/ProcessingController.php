@@ -88,6 +88,7 @@ class ProcessingController extends Controller
      */
     public function update(RequestsProcessing $request, $id)
     {
+        // dd($request->all());
         $data = Processing::find($id);
         $data->pr_categoryname = $request->categoryname;
         $data->pr_memo = $request->memo;

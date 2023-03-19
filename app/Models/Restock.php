@@ -9,7 +9,7 @@ class Restock extends Model
 {
     use HasFactory;
     protected $table = 'restocks';
-    protected $fillable = ['consume_id', 'factorycategory_id', 'specification', 're_time', 're_quantity', 're_unitprice', 're_count', 're_memo', 're_date'];
+    protected $fillable = ['consume_id', 'factorycategory_id', 'mn_id','specification', 're_time', 're_quantity', 're_unitprice', 're_count', 're_memo', 're_date'];
 
     //耗材管理(名稱、規格)
     public function Consume()
@@ -21,10 +21,15 @@ class Restock extends Model
     public function FactoryCategory()
     {
         return $this->belongsTo(FactoryCategory::class, 'factorycategory_id', 'ca_id');
-    }
+    }   
     //耗材規格對應
     public function Tag()
     {
         return $this->hasOne(Tag::class, 'id', 'specification');
+    }
+    //取得廠商名稱
+    public function GetFactoryName()
+    {
+        return $this->hasOne(FactoryManagement::class, 'mn_id','mn_id');
     }
 }

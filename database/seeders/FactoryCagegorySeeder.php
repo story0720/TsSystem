@@ -15,8 +15,8 @@ class FactoryCagegorySeeder extends Seeder
     public function run()
     {
         DB::table('factorycategorys')->insert([
-            ['ca_name'=>"廠商種類1",'ca_Memo'=>'廠商種類1備註'],
-            ['ca_name'=>"廠商種類2",'ca_Memo'=>'廠商種類2備註'],
+            ['ca_name'=>"五金耗材",'ca_Memo'=>'廠商種類1備註'],
+            ['ca_name'=>"協力廠商",'ca_Memo'=>'廠商種類2備註'],
         ]);
     }
 }

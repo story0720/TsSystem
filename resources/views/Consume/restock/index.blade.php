@@ -29,7 +29,7 @@
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <table class="table table-bordered" id="listtable" >
+                        <table class="table table-bordered" id="">
                             <thead>
                                 <tr>
                                     <th class="text-center" style="width: 2rem;">#</th>
@@ -37,8 +37,8 @@
                                     <th>耗材規格</th>
                                     <th>耗材廠商</th>
                                     <th>進貨日期</th>
-                                    <th>進貨單價</th>
                                     <th>進貨數量</th>
+                                    <th>進貨單價</th>
                                     <th>小計</th>
                                     <th>備註</th>
                                     <th class="text-center" style="width: 10rem;">功能</th>
@@ -49,11 +49,11 @@
                                     <tr>
                                         <td>{{ $key->id }}</td>
                                         <td>{{ $key->Consume->co_standardName }}</td>
-                                        <td>{{ $key->Tag->name}}</td>
-                                        <td>{{ $key->FactoryCategory->ca_Name }}</td>
+                                        <td>{{ $key->Tag->name }}</td>
+                                        <td>{{ $key->GetFactoryName->mn_Name }}</td>
                                         <td>{{ $key->re_date }}</td>
-                                        <td>{{ $key->re_quantity }}</td>
                                         <td>{{ $key->re_unitprice }}</td>
+                                        <td>{{ $key->re_quantity }}</td>
                                         <td>{{ $key->re_count }}</td>
                                         <td>{{ $key->re_memo }}</td>
                                         <td class="text-center">
@@ -62,11 +62,11 @@
                                                 </i>
                                                 編輯
                                             </a>
-                                            <a class="btn btn-danger btn-sm" href="#">
+                                            <button type="button" id="sub-btn" data-id="{{$key->id }}" class="btn btn-danger btn-sm">
                                                 <i class="fas fa-trash">
                                                 </i>
                                                 刪除
-                                            </a>
+                                            </button>
                                         </td>
                                     </tr>
                                 @endforeach
