@@ -9,10 +9,10 @@ $(function () {
     searching: true,
     columns: [{
       data: 'id',
-      title: '編號'
+      title: '#'
     }, {
       data: 'name',
-      title: '耗材種類'
+      title: '耗材名稱'
     }, {
       data: 'spec',
       title: '耗材規格'

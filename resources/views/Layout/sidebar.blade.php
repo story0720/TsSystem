@@ -1,8 +1,7 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="/" class="brand-link">
-        <img src="https://picsum.photos/128" alt="System Logo" class="brand-image img-circle elevation-3"
-            style="opacity: .8">
+        <img src="https://picsum.photos/128" alt="System Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light">鐵祥企業</span>
     </a>
 
@@ -11,8 +10,7 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
-                data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
                 <li class="nav-item menu-open">
                     <a href="#" target="_blank" class="nav-link">
                         <i class="fas fa-circle nav-icon"></i>
@@ -78,12 +76,12 @@
                                 <p class="pl-3">耗材庫存</p>
                             </a>
                         </li>
-                        <li class="nav-item">
+                        <!-- <li class="nav-item">
                             <a href="{{ Route('monthly.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p class="pl-3">月結查詢</p>
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
                 </li>
                 <li class="nav-item menu-open">

@@ -8,7 +8,7 @@ $('#listtable').DataTable({
   searching: true,
   columns: [{
     data: 'id',
-    title: '編號'
+    title: '#'
   }, {
     data: 'name',
     title: '廠商名稱'
@@ -19,7 +19,7 @@ $('#listtable').DataTable({
   },
   {
     data: 'categoryname',
-    title: '加工成品(種類&規格)'
+    title: '加工方法&規格'
   },
   {
     data: 'unitprice',
@@ -35,7 +35,7 @@ $('#listtable').DataTable({
   },
   {
     data: 'status',
-    title: '發料狀態'
+    title: '發料狀態(發料日期&發料數量)'
   },
   {
     data: 'status',

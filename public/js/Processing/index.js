@@ -9,16 +9,22 @@ $(function () {
     searching: true,
     columns: [
       {
-        data: 'id', title: '編號'
+        data: 'id', title: '#'
       }, {
-        data: 'categoryname', title: '加工方法'
+        data: 'material', title: '加工方法'
       }, {
-        data: 'price', title: '單價'
-      }, {
-        data: 'memo', title: '備註'
-      }, {
+        data: 'specificationAndPrice', title: '加工規格&單價'
+      }
+      // , {
+      //   data: 'price', title: '單價'
+      // }
+      // , {
+      //   data: 'memo', title: '備註'
+      // }
+      , {
         data: 'office', title: '功能'
-      }]
+      }
+    ]
   });
 
 
