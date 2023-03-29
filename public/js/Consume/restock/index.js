@@ -11,7 +11,10 @@ $(function () {
     searching: true,
     columns: [{
       data: 'id',
-      title: '編號'
+      title: '#'
+    }, {
+      data: 'restockNumber',
+      title: '進貨單號'
     }, {
       data: 'consumablesName',
       title: '耗材名稱'
@@ -33,10 +36,12 @@ $(function () {
     }, {
       data: 're_count',
       title: '小計'
-    }, {
-      data: 'memo',
-      title: '備註'
-    }, {
+    }
+      // , {
+      //   data: 'memo',
+      //   title: '備註'
+      // }
+      , {
       data: 'function',
       title: '功能'
     }]

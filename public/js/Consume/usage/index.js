@@ -9,13 +9,16 @@ $(function () {
     searching: true,
     columns: [{
       data: 'id',
-      title: '編號'
+      title: '#'
     }, {
       data: 'useDate',
       title: '領取日期'
     }, {
       data: 'userName',
       title: '領取人'
+    }, {
+      data: 'restockNumber',
+      title: '進貨單號'
     }, {
       data: 'name',
       title: '耗材名稱'
@@ -25,10 +28,12 @@ $(function () {
     }, {
       data: 'useAmount',
       title: '領取數量'
-    }, {
-      data: 'memo',
-      title: '備註'
-    }, {
+    }
+    // , {
+    //   data: 'memo',
+    //   title: '備註'
+    // }
+    , {
       data: 'function',
       title: '功能'
     }]

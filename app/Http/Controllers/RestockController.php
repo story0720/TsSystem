@@ -18,7 +18,7 @@ class RestockController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {       
+    {
         $data = Restock::orderby('id', 'desc')->get();
         return view('Consume.restock.index', ['data' => $data]);
     }
@@ -43,9 +43,9 @@ class RestockController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function store(ConsumeRestock $request)
-    {       
+    {
         Restock::FirstOrCreate([
-            'restock_order_number' =>date('yymdHiss'),             //建立單號
+            'restock_order_number' => date('yymdHiss'),             //建立單號
             'factorycategory_id' => $request->caname,              //廠商種類
             'consume_id' => $request->coname,                      //耗材名稱
             'mn_id' => $request->Factoryname,                      //廠商名稱id

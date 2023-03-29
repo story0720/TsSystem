@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">耗材進貨列表</h1>
+                    <h1 class="m-0">耗材進貨列表(要補刪除的關聯防呆機制)</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -33,6 +33,7 @@
                         <thead>
                             <tr>
                                 <th class="text-center" style="width: 2rem;">#</th>
+                                <th>耗材進貨單號</th>
                                 <th>耗材名稱</th>
                                 <th>耗材規格</th>
                                 <th>耗材廠商</th>
@@ -40,7 +41,7 @@
                                 <th>進貨數量</th>
                                 <th>進貨單價</th>
                                 <th>小計</th>
-                                <th>備註</th>
+                                <!-- <th>備註</th> -->
                                 <th class="text-center" style="width: 10rem;">功能</th>
                             </tr>
                         </thead>
@@ -48,6 +49,7 @@
                             @foreach ($data as $key)
                             <tr>
                                 <td>{{ $key->id }}</td>
+                                <td>000(補程式)000</td>
                                 <td>{{ $key->Consume->co_standardName }}</td>
                                 <td>{{ $key->Tag->name }}</td>
                                 <td>{{ $key->GetFactoryName->mn_Name }}</td>
@@ -55,7 +57,7 @@
                                 <td>{{ $key->re_quantity }}</td>
                                 <td>{{ $key->re_unitprice }}</td>
                                 <td>{{ $key->re_count }}</td>
-                                <td>{{ $key->re_memo }}</td>
+                                <!-- <td>{{ $key->re_memo }}</td> -->
                                 <td class="text-center">
                                     <a class="btn btn-info btn-sm" href="{{ Route('restock.edit', $key->id) }}">
                                         <i class="fas fa-pencil-alt">
@@ -82,7 +84,6 @@
 </div>
 <!-- /.content-wrapper -->
 @endsection
-
 @section('script')
 <script src="{{ asset('js/Consume/restock/index.js') }}"></script>
 @endsection
