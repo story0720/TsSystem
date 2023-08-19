@@ -25,15 +25,15 @@
     <!-- Main content -->
     <div class="content">
         <div class="container-fluid">
-            <div class="card">
-                <!-- form start -->
-                <form action="{{ Route('order.store') }}" method="post">
-                    @csrf
+            <!-- form start -->
+            <form action="{{ Route('order.store') }}" method="post" class="orderForm">
+                @csrf
+                <div class="card">
                     <div class="card-body">
                         <div class="row">
 
                             @foreach ($factoryManagement as $item)
-                            <div class="form-group col-md-12">
+                            <div class="form-group col-md-3">
                                 <label>廠商名稱</label>
                                 <input type="text" class="form-control bg-light border-0" name="TradeName" id="client_name {{ $item->mn_id }}" value="{{ $item->mn_Name }}" readonly>
                             </div>
@@ -41,38 +41,52 @@
 
                             <!-- 20230325增加 -->
                             <!-- <div class="form-group col-md-6">
-                                <label><span class="text-danger">*</span>廠商種類</label>
-                                <select class="form-control" name="TradeType" id="client_type">
-                                    <option value="">請選擇廠商種類...</option>
-                                    <option value="1">畫面測試1...</option>
-                                    <option value="2">畫面測試2...</option>
-                                </select>
-                            </div> -->
+                                    <label><span class="text-danger">*</span>廠商種類</label>
+                                    <select class="form-control" name="TradeType" id="client_type">
+                                        <option value="">請選擇廠商種類...</option>
+                                        <option value="1">畫面測試1...</option>
+                                        <option value="2">畫面測試2...</option>
+                                    </select>
+                                </div> -->
                             <!-- 20230325增加 -->
                             <!-- <div class="form-group col-md-6">
-                                <label><span class="text-danger">*</span>廠商名稱</label>
+                                    <label><span class="text-danger">*</span>廠商名稱</label>
 
-                                <div class="input-group" data-type="TradeNameFake">
-                                    <input type="text" class="form-control border-right-0" id="" placeholder="請先選擇廠商種類" disabled>
-                                    <div class="input-group-append">
-                                        <span class="input-group-text border-1 border-left-0">
-                                            <i class="fas fa-exclamation-circle"></i>
-                                        </span>
+                                    <div class="input-group" data-type="TradeNameFake">
+                                        <input type="text" class="form-control border-right-0" id="" placeholder="請先選擇廠商種類" disabled>
+                                        <div class="input-group-append">
+                                            <span class="input-group-text border-1 border-left-0">
+                                                <i class="fas fa-exclamation-circle"></i>
+                                            </span>
+                                        </div>
                                     </div>
-                                </div>
 
-                                <select class="form-control d-none" name="TradeName" id="client_name">
-                                    <option>請選擇廠商名稱...</option>
-                                    @foreach ($factoryManagement as $item)
-                                    <option value="{{ $item->mn_id }}">{{ $item->mn_Name }}</option>
-                                    @endforeach
+                                    <select class="form-control d-none" name="TradeName" id="client_name">
+                                        <option>請選擇廠商名稱...</option>
+                                        @foreach ($factoryManagement as $item)
+                                        <option value="{{ $item->mn_id }}">{{ $item->mn_Name }}</option>
+                                        @endforeach
+                                    </select>
+                                </div> -->
+
+
+                            <div class="form-group col-md-1">
+                                <label><span class="text-danger">*</span>加工編號</label>
+                                <select class="form-control" name="SerialNumberType">
+                                    <option value="0">新</option>
+                                    <option value="1">舊</option>
                                 </select>
-                            </div> -->
-                            <div class="form-group col-md-6">
-                                <label for=""><span class="text-danger">*</span>加工編號</label>
-                                <input type="text" name="SerialNumber" class="form-control" id="" placeholder="請輸入加工編號...">
                             </div>
-                            <div class="form-group col-md-6">
+                            <div class="form-group col-md-5">
+                                <label>新編號</label>
+                                <input type="text" name="SerialNumber" class="form-control" placeholder="請輸入加工編號...">
+                                <select class="form-control d-none" name="SerialNumberOld">
+                                    <option value="">請選擇加工編號...</option>
+                                    <option value="num_1">舊加工編號1...</option>
+                                    <option value="num_2">舊加工編號2...</option>
+                                </select>
+                            </div>
+                            <!-- <div class="form-group col-md-12">
                                 <label for=""><span class="text-danger">*</span>加工方法</label>
                                 <select class="form-control" name="CategoryName" id="">
                                     <option value="">請輸入加工方法...</option>
@@ -80,7 +94,28 @@
                                     <option value="{{ $item->id }}">{{ $item->pr_categoryname }}</option>
                                     @endforeach
                                 </select>
+                            </div> -->
+
+                            <div class="form-group col-md-12">
+                                <label for=""><span class="text-danger">*</span>加工方法</label>
+                                <!-- 加工方法選擇框 -->
+                                <select class="form-control" id="categoryNames">
+                                    <option value="">請選擇加工方法...</option>
+                                </select>
                             </div>
+                            <div class="form-group col-md-12">
+                                <label for=""><span class="text-danger">*</span>加工規格</label>
+                                <!-- 標準選擇框 (初始為空) -->
+                                <select class="form-control" id="standards">
+                                    <option value="">請選擇標準...</option>
+                                </select>
+                            </div>
+                            <div class="form-group col-md-12">
+                                <label for=""><span class="text-danger">*</span>對應單價</label>
+                                <!-- 價格顯示 (初始為空) -->
+                                <input type="text" class="form-control" id="price" readonly>
+                            </div>
+
                             <div class="form-group col-md-6">
                                 <label for=""><span class="text-danger">*</span>加工規格</label>
                                 <div class="input-group" data-type="specificationFake">
@@ -191,30 +226,33 @@
                         </div>
                     </div>
                     <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-            <div class="card">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="form-group col-md-12">
-                            <label for="order_memo">備註</label>
-                            <textarea class="form-control" id="order_memo" rows="5" name="Memo" placeholder="請輸入備註..."></textarea>
+                </div>
+                <!-- /.card -->
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="form-group col-md-12">
+                                <label for="order_memo">備註</label>
+                                <textarea class="form-control" id="order_memo" rows="5" name="Memo" placeholder="請輸入備註..."></textarea>
+                            </div>
                         </div>
                     </div>
+                    <!-- /.card-body -->
+                    <div class="card-footer text-center">
+                        <button type="button" class="btn btn-primary">123</button>
+                        <button type="submit" class="btn btn-primary">送出</button>
+                    </div>
+                    <!-- /.card-footer -->
                 </div>
-                <!-- /.card-body -->
-                <div class="card-footer text-center">
-                    <button type="submit" class="btn btn-primary">送出</button>
-                </div>
-                <!-- /.card-footer -->
-                </form>
-                <!-- /.form-->
-            </div>
-            <!-- /.card -->
+                <!-- /.card -->
+            </form>
+            <!-- /.form-->
         </div>
-        <!-- /.container-fluid -->
+        <!-- /.card -->
     </div>
-    <!-- /.content -->
+    <!-- /.container-fluid -->
+</div>
+<!-- /.content -->
 </div>
 <!-- /.content-wrapper -->
 @endsection

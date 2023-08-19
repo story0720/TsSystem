@@ -32,19 +32,18 @@
                     <table class="table table-bordered text-center table-valign-middle" id="listtable">
                         <thead>
                             <tr>
-                                <th class="text-nowrap bg-info">#</th>
-                                <th class="text-nowrap bg-info">廠商名稱</th>
-                                <th class="text-nowrap bg-info">加工編號</th>
-                                <th class="text-nowrap bg-info">加工方法&規格</th>
-                                <th class="text-nowrap bg-info">單價</th>
-                                <th class="text-nowrap bg-info">應交數量</th>
-                                <th class="text-nowrap bg-info">應出貨日期</th>
-                                <th class="text-nowrap bg-info">發料狀態</th>
-                                <th class="text-nowrap bg-olive">交貨日期</th>
-                                <th class="text-nowrap bg-olive">實交數量</th>
-                                <th class="text-nowrap bg-olive">總額</th>
-                                <th class="text-nowrap bg-olive" style="width: 4rem;">狀態</th>
-                                <th class="text-nowrap bg-info" style="width: 6rem;">功能</th>
+                                <th scope="col" class="text-center text-nowrap bg-info">No.</th>
+                                <th scope="col" class="text-nowrap bg-info">廠商名稱</th>
+                                <th scope="col" class="text-nowrap bg-info">加工編號</th>
+                                <th scope="col" class="text-nowrap bg-info">加工方法&規格</th>
+                                <th scope="col" class="text-nowrap bg-info">單價</th>
+                                <th scope="col" class="text-nowrap bg-info">應交數量</th>
+                                <th scope="col" class="text-nowrap bg-info">應交日期</th>
+                                <th scope="col" class="text-nowrap bg-info">發料狀態(發料日期&發料數量)</th>
+                                <th scope="col" class="text-nowrap bg-olive">交貨狀態(實交日期&實交數量)</th>
+                                <th scope="col" class="text-nowrap bg-olive">總額</th>
+                                <th scope="col" class="text-center text-nowrap bg-olive">狀態</th>
+                                <th scope="col" class="text-center text-nowrap bg-info">功能</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -55,24 +54,33 @@
                                 <td>{{ $key->serialnumber }}</td>
                                 <td class="text-left">
                                     {{ $key->Processing->pr_categoryname }}<br>
-                                    <span class="mr-1 badge badge-info">規格1(還沒做)</span>
-                                    <span class="mr-1 badge badge-info">規格2(還沒做)</span>
+                                    <span class="mr-1 badge badge-dark">規格1(還沒做)</span>
+                                    <span class="mr-1 badge badge-dark">規格2(還沒做)</span>
+                                    <br>
+                                    <span class="badge badge-info">117孔</span>
+                                    <span class="badge badge-secondary">無凹槽</span>
                                 </td>
                                 <td>{{ $key->unitprice }}</td>
                                 <td>{{ $key->estimatedquantity }}</td>
                                 <td>{{ $key->shipdate }}</td>
-                                <td>{{ $key->count }}</td>
-                                <td>
-                                    -
-                                </td>
-                                <td>
-                                    -
-                                </td>
-                                <td>
-                                    <span class="badge badge-danger">未完工</span>
-                                </td>
-                                <td>
+                                <td class="text-left" data-type="發料狀態(發料日期&發料數量)">
+                                    <span class="badge badge-dark mr-1">發料日期</span>2023.03.10<br>
+                                    <span class="badge badge-secondary mr-1">發料數量</span>10<br>
                                     <span class="badge badge-danger">未發料</span>
+                                </td>
+                                <td class="text-left" data-type="交貨狀態(實交日期&實交數量)">
+                                    <span class="badge badge-dark mr-1">實交日期</span>2023.04.10<br>
+                                    <span class="badge badge-secondary mr-1">實交數量</span>10<br>
+                                    <span class="badge badge-danger">未交貨</span>
+                                </td>
+                                <td data-type="總額">{{ $key->count }}</td>
+                                <td data-type="狀態">
+                                    <a class="mb-1 btn btn-warning btn-sm text-nowrap" href="#">
+                                        <i class="fa fa-exclamation-circle mr-1">
+                                        </i>
+                                        未完工
+                                    </a><br>
+                                    <span class="badge badge-success">已完工</span>
                                 </td>
                                 <td>
                                     <a class="mb-1 btn btn-info btn-sm text-nowrap" href="{{Route('order.edit',$key->id)}}">
@@ -89,11 +97,6 @@
                                             刪除
                                         </button>
                                     </form>
-                                    <button class="mb-1 btn btn-warning btn-sm text-nowrap">
-                                        <i class="fas fa-check">
-                                        </i>
-                                        完工
-                                    </button>
                                 </td>
                             </tr>
                             @endforeach

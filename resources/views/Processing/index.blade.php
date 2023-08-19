@@ -31,11 +31,10 @@
                     <table class="table table-bordered" id="listtable">
                         <thead>
                             <tr>
-                                <th class="text-center" style="width: 2rem;">#</th>
-                                <th class="text-center">加工方法</th>
-                                <th class="text-left">加工規格&單價</th>
-                                <!-- <th>備註</th> -->
-                                <th class="text-center" style="width: 10rem;">功能</th>
+                                <th scope="col" class="text-center">#</th>
+                                <th scope="col">加工方法</th>
+                                <th scope="col">加工規格&單價</th>
+                                <th scope="col" class="text-center">功能</th>
                             </tr>
                         </thead>
                         <tbody>

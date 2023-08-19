@@ -2,8 +2,8 @@
 
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Route;
-
-
+use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\ProcessingController;
 
 Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -66,7 +66,7 @@ Route::middleware(['auth'])->group(function () {
     Route::resource("/monthly", App\Http\Controllers\MonthlyController::class);
 
     //耗材使用紀錄
-    Route::post('/usage/GeData/{id}',[App\Http\Controllers\RestockController::class, 'GeData'])->name('usage.GeData');
+    Route::post('/usage/GeData/{id}', [App\Http\Controllers\RestockController::class, 'GeData'])->name('usage.GeData');
     Route::resource("/usage", App\Http\Controllers\UsageController::class);
 
     //標籤雲
@@ -81,3 +81,10 @@ Route::middleware(['auth'])->group(function () {
     //材料管理
     Route::resource('/material', App\Http\Controllers\MaterialController::class);
 });
+
+
+
+
+Route::get('/api/categorynames', [ProcessingController::class, 'getCategoryNames']);
+Route::get('/api/standards/{categoryname}', [ProcessingController::class, 'getStandardsByCategoryName']);
+Route::get('/api/price/{standard}', [ProcessingController::class, 'getPriceByStandard']);

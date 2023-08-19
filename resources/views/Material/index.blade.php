@@ -23,9 +23,9 @@
     <div class="content">
         <div class="container-fluid">
             <div class="card">
-                <div class="card-header text-left">
+                <!-- <div class="card-header text-left">
                     <a href="{{ Route('material.create') }}" class="btn btn-success">新增材料</a>
-                </div>
+                </div> -->
                 <!-- /.card-header -->
                 <div class="card-body">
                     <table class="table table-bordered">

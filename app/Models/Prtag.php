@@ -9,9 +9,10 @@ class Prtag extends Model
 {
     use HasFactory;
     protected $table = 'prtags';
-    protected $fillable = ['pr_standard','pr_price'];
+    protected $fillable = ['pr_standard', 'pr_price'];
 
-    public function Processings(){
+    public function Processings()
+    {
         return $this->belongsToMany(Processing::class);
     }
 }

@@ -31,24 +31,23 @@
                     <table class="table table-bordered" id="listtable">
                         <thead>
                             <tr>
-                                <th class="text-center" style="width: 2rem;">#</th>
+                                <th scope="col" class="text-center">No.</th>
                                 <th scope="col">領取日期</th>
                                 <th scope="col">領取人</th>
-                                <th scope="col">耗材進貨單號</th>
+                                <th scope="col">進貨單號</th>
                                 <th scope="col">耗材名稱</th>
                                 <th scope="col">耗材規格</th>
                                 <th scope="col">領取數量</th>
-                                <!-- <th scope="col">備註</th> -->
-                                <th scope="col">功能</th>
+                                <th scope="col" class="text-center">功能</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
                             <tr>
-                                <td>{{ $item->id }}</td>
+                                <td class="text-center">{{ $item->id }}</td>
                                 <td>{{ $item->getdate }}</td>
                                 <td>{{ $item->receiver }}</td>
-                                <td>000(補程式)000</td>
+                                <td>00(補程式)00</td>
                                 <td>{{ $item->Consume->co_standardName }}</td>
                                 <td>{{ $item->tag->name }}</td>
                                 <td>{{ $item->quantity }}</td>

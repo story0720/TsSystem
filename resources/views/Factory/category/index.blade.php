@@ -32,16 +32,16 @@
                     <table class="table table-bordered" id="listtable">
                         <thead>
                             <tr>
-                                <th class="text-center" style="width: 2rem;">#</th>
-                                <th>種類</th>
-                                <th>備註</th>
-                                <th class="text-center" style="width: 10rem;">功能</th>
+                                <th scope="col" class="text-center">No.</th>
+                                <th scope="col">種類</th>
+                                <th scope="col">備註</th>
+                                <th scope="col" class="text-center">功能</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($category as $item)
                             <tr>
-                                <td>{{ $item->ca_id }}</td>
+                                <td class="text-center">{{ $item->ca_id }}</td>
                                 <td>{{ $item->ca_Name }}</td>
                                 <td>{{ $item->ca_Memo }}</td>
                                 <td class="text-center">

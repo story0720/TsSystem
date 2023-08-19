@@ -40,18 +40,18 @@
                     <table class="table table-bordered" id="listtable">
                         <thead>
                             <tr>
-                                <th>#</th>
-                                <th>種類</th>
-                                <th>廠商名稱</th>
-                                <th>聯絡人</th>
-                                <th>主要電話</th>
-                                <th class="text-center" style="width: 18rem;">功能</th>
+                                <th scope="col" class="text-center">#</th>
+                                <th scope="col">種類</th>
+                                <th scope="col">廠商名稱</th>
+                                <th scope="col">聯絡人</th>
+                                <th scope="col">主要電話</th>
+                                <th scope="col" class="text-center">功能</th>
                             </tr>
                         </thead>
                         <tbody>
                             @foreach ($data as $item)
                             <tr>
-                                <td>{{ $item->mn_id }}</td>
+                                <td class="text-center">{{ $item->mn_id }}</td>
                                 <td>{{ $item->category->ca_Name }}</td>
                                 <td>{{ $item->mn_Name }}</td>
                                 <td>{{ $item->mn_Contact }}</td>

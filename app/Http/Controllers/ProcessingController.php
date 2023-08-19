@@ -50,7 +50,7 @@ class ProcessingController extends Controller
         foreach ($tags as $item) {
             $explode = explode('-', $item);
             $model = Prtag::firstorCreate(['pr_standard' => $explode[0], 'pr_price' => $explode[1]]);
-            $data->Prtags()->attach($model->id);
+            $data->prtags()->attach($model->id);
         }
         return redirect()->action([ProcessingController::class, 'index']);
     }
@@ -99,7 +99,7 @@ class ProcessingController extends Controller
             $prtag = Prtag::updateOrCreate(['pr_standard' => $explode[0], 'pr_price' => $explode[1]]);
             $tagIds[] = $prtag->id;
         }
-        $data->Prtags()->sync($tagIds);
+        $data->prtags()->sync($tagIds);
         return redirect()->action([ProcessingController::class, 'index']);
     }
 
@@ -113,12 +113,12 @@ class ProcessingController extends Controller
     {
         try {
             $data = Processing::findOrFail($id);
-            $data->Prtags()->delete();
+            $data->prtags()->delete();
             $data->delete();
             $response = ['icon' => 'success', 'title' => '刪除成功!'];
             return response()->json($response);
         } catch (Exception $e) {
-            $response = ['icon' => 'error','title' => '刪除失敗','text' => '可能有其他筆資料有關聯請再次檢查'];
+            $response = ['icon' => 'error', 'title' => '刪除失敗', 'text' => '可能有其他筆資料有關聯請再次檢查'];
             return response()->json($response);
         }
     }
